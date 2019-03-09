@@ -56,6 +56,8 @@ See [Data Size Formatting](#data-size-formatting) for displaying file sizes as f
 ```swift
 import SwiftyFileSystem
 
+typealias RenamingPolicy = FileSystem.RenamingPolicy
+
 // FileSystem.mainResourcePath is an alias for `Bundle.main.resourcePath`
 print(FileSystem.fileExists(FileSystem.mainResourcePath)) // prints "true"
 
@@ -71,11 +73,11 @@ for file in FileSystem.contentsOfDirectory(at: FileSystem.mainResourcePath) {
 let src = "path/to/my-file".fileURL
 let dst = URL(fileURLWithPath)
 FileSystem.copyItem(at: src, to: dst, 
-                    with: RenamingPolicy(options: [
-                                            .versionAfterExtension, 
-                                            .versionDashed, 
-                                            .versionInsideParentheses,], 
-                                         maximumAllowedRenamingAttempts: 10)
+                    with: FileSystem.RenamingPolicy(options: [
+                                                       .versionAfterExtension, 
+                                                       .versionDashed, 
+                                                       .versionInsideParentheses,], 
+                                                    maximumAllowedRenamingAttempts: 10)
 ```
 
 ### Data Size Formatting
