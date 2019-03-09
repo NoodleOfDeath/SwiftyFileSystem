@@ -1,0 +1,6 @@
+framework module SwiftyFileSystem {
+  umbrella header "SwiftyFileSystem-umbrella.h"
+
+  export *
+  module * { export * }
+}

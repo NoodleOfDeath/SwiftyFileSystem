@@ -1,0 +1,23 @@
+PODS:
+  - SwiftyFileSystem (1.0.0):
+    - SwiftyUTType
+  - SwiftyUTType (1.0.0)
+
+DEPENDENCIES:
+  - SwiftyFileSystem (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SwiftyUTType
+
+EXTERNAL SOURCES:
+  SwiftyFileSystem:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SwiftyFileSystem: 4d9b16061464382de5c1cecaa2be98b38873379e
+  SwiftyUTType: ee9c7b80276bedc5f170b1149199befb411a6186
+
+PODFILE CHECKSUM: df479d0932bbc513fcaa2d600a7f5ec69f0bbef8
+
+COCOAPODS: 1.6.0.beta.2
