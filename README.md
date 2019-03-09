@@ -71,7 +71,10 @@ for file in FileSystem.contentsOfDirectory(at: FileSystem.mainResourcePath) {
 let src = "path/to/my-file".fileURL
 let dst = URL(fileURLWithPath)
 FileSystem.copyItem(at: src, to: dst, 
-                    with: RenamingPolicy(options: [.versionAfterExtension, .versionDashed, ,versionInsideParentheses], 
+                    with: RenamingPolicy(options: [
+                                            .versionAfterExtension, 
+                                            .versionDashed, 
+                                            .versionInsideParentheses,], 
                                          maximumAllowedRenamingAttempts: 10)
 ```
 
