@@ -56,7 +56,9 @@ extension FileSystem {
         }
         
         /// Automatic format policy.
-        public static let automatic = This(options: [.versionDashed], maximumAllowedRenamingAttempts: 99)
+        public static let automatic =
+            This(options: [.versionDashed],
+                 maxRenamingAttempts: 99)
         
         /// Input regular expression format of this renaming policy.
         public let inputFormat: String
@@ -68,8 +70,8 @@ extension FileSystem {
         public let options: Option
         
         /// Number of times this policy allows the file system to rename
-        /// a file.
-        public let maximumAllowedRenamingAttempts: Int
+        /// a file before giving up.
+        public let maxRenamingAttempts: Int
         
         // MARK: - Constructor Methods
         
@@ -81,8 +83,10 @@ extension FileSystem {
         /// Constructs a new renaming policy with an initial format string.
         ///
         /// - Parameters:
-        ///     - format: to use for this renaming policy.
-        public init(options: Option, maximumAllowedRenamingAttempts: Int = .max) {
+        ///     - options: to use for this renaming policy.
+        ///     - maxRenamingAttempts: number of times this policy
+        /// allows the file system to rename a file before giving up.
+        public init(options: Option, maxRenamingAttempts: Int = .max) {
             self.options = options
             inputFormat = "(\\w+)(?:\\.(\\w+))?$"
             var format = ""
@@ -111,15 +115,24 @@ extension FileSystem {
                 }
             }
             outputFormat = format
-            self.maximumAllowedRenamingAttempts = maximumAllowedRenamingAttempts
+            self.maxRenamingAttempts = maxRenamingAttempts
         }
         
         // MARK: - Instance Methods
         
-        /// Contructs a new renaming policy from this existing policy.
-        public func with(options: Option? = nil, maximumAllowedRenamingAttempts: Int) -> This {
+        /// Contructs and returns a new renaming policy from this existing
+        /// policy.
+        ///
+        /// - Parameters:
+        ///     - options: to use for this renaming policy. If not specified,
+        /// this options of this renmaing policy will be used to construct the
+        /// new renaming policy.
+        ///     - maxRenamingAttempts: number of times the new policy
+        /// allows the file system to rename a file before giving up.
+        /// - Returns: a new renaming policy from this existing policy.
+        public func with(options: Option? = nil, maxRenamingAttempts: Int) -> This {
             return This(options: options ?? self.options,
-                        maximumAllowedRenamingAttempts: maximumAllowedRenamingAttempts)
+                        maxRenamingAttempts: maxRenamingAttempts)
         }
         
         /// Generates a newly formatted name from a basename and specified
@@ -130,7 +143,7 @@ extension FileSystem {
         ///     - version: of the item to include in the generated name.
         ///     - condition: block of code that tells this policy to stop
         /// generating upon returning true.
-        /// - Returns: a newly formatted name from a basename by replacing
+        /// - Returns: A newly formatted name from a basename by replacing
         /// occurences of `inputFormat` in `basename` with `outputFormat` and
         /// using the resultant string as the string format, which takes a
         /// single numeric `CVarArg` argument representing the version number
@@ -145,12 +158,43 @@ extension FileSystem {
             var version = version
             var n = 0
             var newName = path.deletingLastPathComponent +/ basename
-            while !condition(newName) && n < maximumAllowedRenamingAttempts {
+            while !condition(newName) && n < maxRenamingAttempts {
                 version += 1
                 n += 1
                 newName = path.deletingLastPathComponent +/ String(format: format, version)
             }
             return newName
+        }
+        
+        /// Generates a newly formatted name from a basename and specified
+        /// version number.
+        ///
+        /// - Parameters:
+        ///     - url: of the item to rename.
+        ///     - version: of the item to include in the generated name.
+        ///     - condition: block of code that tells this policy to stop
+        /// generating upon returning true.
+        /// - Returns: A newly formatted name from a basename by replacing
+        /// occurences of `inputFormat` in `basename` with `outputFormat` and
+        /// using the resultant string as the string format, which takes a
+        /// single numeric `CVarArg` argument representing the version number
+        /// of the file.
+        public func generateVersionedURL(from url: URL, version: Int = 0, while condition: (_ name: URL) -> Bool) -> URL {
+            let basename = url.lastPathComponent
+            let format =
+                basename.replacingOccurrences(of: inputFormat,
+                                              with: outputFormat,
+                                              options: .regularExpression,
+                                              range: basename.range)
+            var version = version
+            var n = 0
+            var newURL = url.deletingLastPathComponent() +/ basename
+            while !condition(newURL) && n < maxRenamingAttempts {
+                version += 1
+                n += 1
+                newURL = url.deletingLastPathComponent() +/ String(format: format, version)
+            }
+            return newURL
         }
         
     }

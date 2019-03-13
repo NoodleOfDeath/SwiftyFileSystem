@@ -25,13 +25,13 @@
 import CoreImage
 import UIKit
 
+// This file contains usefult local extensions accessible only to this module.
+// You may modify this file and the scope of various extensions as needed
+// for personal projects, but not when committing to the repository.
+
 // MARK: - Path Component Concatentation Infix Operator
 
 infix operator +/ : AdditionPrecedence
-
-// MARK: - Optional Addition Infix Operator
-
-infix operator ?+ : AdditionPrecedence
 
 // MARK: - Optional Assignment Operator
 
@@ -100,30 +100,6 @@ func + <NumericType: Numeric>(lhs: NumericType, rhs: Bool) -> NumericType {
 /// - Returns:
 func + <NumericType: Numeric>(lhs: Bool, rhs: NumericType) -> NumericType {
     return (lhs ? 1 : 0) + rhs
-}
-
-// MARK: - Optional Math Operator Methods
-
-///
-///
-/// - Parameters:
-///     - lhs:
-///     - rhs:
-/// - Returns:
-func ?+ <NumericType: Numeric>(lhs: NumericType, rhs: NumericType?) -> NumericType {
-    guard let rhs = rhs else { return lhs }
-    return lhs + rhs
-}
-
-///
-///
-/// - Parameters:
-///     - lhs:
-///     - rhs:
-/// - Returns:
-func ?+ <NumericType: Numeric>(lhs: NumericType?, rhs: NumericType) -> NumericType {
-    guard let lhs = lhs else { return rhs }
-    return lhs + rhs
 }
 
 // MARK: - CGFloat Extensions
@@ -278,8 +254,8 @@ extension NSAttributedStringKey {
         = NSAttributedStringKey("NSIconTintColor")
     
     /// Attribute name key for icon alpha.
-    static let iconOpacity
-        = NSAttributedStringKey("NSIconOpacity")
+    static let iconAlpha
+        = NSAttributedStringKey("NSIconAlpha")
     
     /// Attribute name key for icon shadow.
     static let iconShadow
@@ -1580,6 +1556,7 @@ extension URL {
 }
 
 // MARK: - URL Path Concatenation
+
 extension URL {
     
     static func +/ (lhs: URL, rhs: String) -> URL {
@@ -1596,14 +1573,6 @@ extension URL {
 func +/ (lhs: URL?, rhs: String) -> URL? {
     guard let lhs = lhs else { return nil }
     return lhs.appendingPathComponent(rhs)
-}
-
-// MARK: - URLFileResourceType Class Property Extensions
-extension URLFileResourceType {
-    
-    /// Resource type for hidden files.
-    static let hidden = URLFileResourceType(rawValue: "NSURLFileResourceTypeHidden")
-    
 }
 
 // MARK: - UserDefaults Subscript Extensions
@@ -1777,7 +1746,7 @@ protocol BaseRawRepresentable: Hashable, RawRepresentable where RawValue: Hashab
 
 extension BaseRawRepresentable {
     
-    var hashValue: Int { return rawValue.hashValue }
+    public var hashValue: Int { return rawValue.hashValue }
     
     init(_ rawValue: RawValue) {
         self.init(rawValue: rawValue)

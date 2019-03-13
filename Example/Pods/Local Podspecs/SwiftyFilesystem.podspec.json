@@ -1,8 +1,8 @@
 {
   "name": "SwiftyFileSystem",
   "version": "1.0.0",
-  "summary": "Lightweight framework for working with filesystems.",
-  "description": "Lightweight wrapper framework around the Swift FileManager class with built-in renaming policies and common directory path/url generation methods.",
+  "summary": "Lightweight framework for effortlessly working with filesystems in swift.",
+  "description": "SwiftyFileSystem is a lightweight wrapper framework around the Swift FileManager class with several URL extensions, built-in renaming policies when moving and copying files, common directory path/url generation methods, and file size string formatting.",
   "homepage": "https://github.com/NoodleOfDeath/SwiftyFileSystem",
   "license": {
     "type": "MIT",
