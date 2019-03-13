@@ -36,9 +36,10 @@ extension URL {
         return (try? checkResourceIsReachable()) ?? false
     }
     
-    /// `true` if, and only if, this resource is a local resource.
+    /// `true` if, and only if, this resource is a file URL.
+    /// Alias for `isFileURL`.
     public var isLocal: Bool {
-        return path.contains(FileSystem.documentPath)
+        return isFileURL
     }
     
     /// `true` if this item is synced to the cloud, `false` if it is only a

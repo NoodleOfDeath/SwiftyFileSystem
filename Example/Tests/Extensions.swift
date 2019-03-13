@@ -29,6 +29,10 @@ import UIKit
 // You may modify this file and the scope of various extensions as needed
 // for personal projects, but not when committing to the repository.
 
+// MARK: - Path Component Concatentation Infix Operator
+
+infix operator +/ : AdditionPrecedence
+
 // MARK: - Optional Assignment Operator
 
 infix operator ?= : AssignmentPrecedence
@@ -905,6 +909,25 @@ extension String {
     
 }
 
+// MARK: - String Path Concatenation
+extension String {
+    
+    static func +/ (lhs: String, rhs: String) -> String {
+        return lhs.appendingPathComponent(rhs)
+    }
+    
+    static func +/ (lhs: String?, rhs: String) -> String? {
+        guard let lhs = lhs else { return nil }
+        return lhs.appendingPathComponent(rhs)
+    }
+    
+    static func +/ (lhs: String, rhs: String?) -> String? {
+        guard let rhs = rhs else { return nil }
+        return lhs.appendingPathComponent(rhs)
+    }
+    
+}
+
 extension String {
     
     ///
@@ -1530,6 +1553,26 @@ extension URL {
         return URL(fileURLWithPath: resolvingSymlinksInPath().path, relativeTo: baseURL)
     }
     
+}
+
+// MARK: - URL Path Concatenation
+
+extension URL {
+    
+    static func +/ (lhs: URL, rhs: String) -> URL {
+        return lhs.appendingPathComponent(rhs)
+    }
+    
+    static func +/ (lhs: URL, rhs: String?) -> URL? {
+        guard let rhs = rhs else { return nil }
+        return lhs.appendingPathComponent(rhs)
+    }
+    
+}
+
+func +/ (lhs: URL?, rhs: String) -> URL? {
+    guard let lhs = lhs else { return nil }
+    return lhs.appendingPathComponent(rhs)
 }
 
 // MARK: - UserDefaults Subscript Extensions

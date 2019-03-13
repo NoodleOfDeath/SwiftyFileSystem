@@ -1,5 +1,5 @@
 PODS:
-  - SwiftyFileSystem (1.0.0):
+  - SwiftyFileSystem (1.0.2):
     - SwiftyUTType
   - SwiftyUTType (1.0.0)
 
@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  SwiftyFileSystem: cc6b51e4cfe649948e3129a7066c332ec138014e
+  SwiftyFileSystem: bd2035052ce5c927fa39f64959780888a25798c0
   SwiftyUTType: ee9c7b80276bedc5f170b1149199befb411a6186
 
 PODFILE CHECKSUM: 3ae7ea5055129cca8a3a555cb7c4bcad0d968c0b

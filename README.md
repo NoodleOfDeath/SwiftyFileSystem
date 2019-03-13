@@ -38,14 +38,14 @@ print(url.isLocal) // prints `true` if the file resides on the local machine
 print(url.isUbiquitous) // prints `true` if the file is managed and synced the cloud
 print(url.isRegularFile) // prints `true` if the file is regular file
 print(url.isDirectory) // prints `true` if the file is a directory
-print(url.isSymblicLink) // prints `true` if the file is a symbolic link
+print(url.isSymbolicLink) // prints `true` if the file is a symbolic link
 print(url.isInferredHidden) // prints `true` if the filename begins wit a "." or "~" character
 print(url.isHidden) // prints `true` if the file hidden by default from the user
 print(url.fileSize) // prints the size of this file in bytes, if it is a regular file
 print(url.sizeOfContents) // prints the recurively summated size of a directory's contents
 print(url.fileCount) // prints the number of files contained in a directory
 print(url.creationDate) // prints the creation date of this file
-print(url.contentAcccessDate) // prints the content access date of this file
+print(url.contentAccessDate) // prints the content access date of this file
 print(url.modificationDate) // prints the most recent modification date of this file
 ```
 
@@ -56,28 +56,21 @@ See [Data Size Formatting](#data-size-formatting) for displaying file sizes as f
 ```swift
 import SwiftyFileSystem
 
-typealias RenamingPolicy = FileSystem.RenamingPolicy
-
-// FileSystem.mainResourcePath is an alias for `Bundle.main.resourcePath`
-print(FileSystem.fileExists(FileSystem.mainResourcePath)) // prints "true"
-
 // Enumerates and prints the file contents of a directory.
 for file in FileSystem.contentsOfDirectory(at: FileSystem.mainResourcePath) {
     print(file)
 }
 
-// Copy a file from one url to another, and increment the name if the 
-// destination file already exists using a renaming policy that puts the 
-// version number after the file extension prefixed with a dash and 
-// bounded by parentheses.
-let src = "path/to/my-file".fileURL
-let dst = URL(fileURLWithPath)
-FileSystem.copyItem(at: src, to: dst, 
-                    with: FileSystem.RenamingPolicy(options: [
-                                                       .versionAfterExtension, 
-                                                       .versionDashed, 
-                                                       .versionInsideParentheses,], 
-                                                    maximumAllowedRenamingAttempts: 10)
+// Copy a file from one testDirectory to another, and increment the name if the
+// destination file already exists using a renaming policy that puts the
+// version number after the basename but before the file extension 
+// prefixed by a dash and bounded in parentheses.
+let src = "path/to/my-src".fileURL
+let dst = "path/to/my-dst".fileURL
+FileSystem.copyItem(at: src, to: dst, with:
+        FileSystem.NamingPolicy(options:
+            [.versionDashed,
+             .versionInsideParentheses], maxRenamingAttempts: 10))
 ```
 
 ### Data Size Formatting

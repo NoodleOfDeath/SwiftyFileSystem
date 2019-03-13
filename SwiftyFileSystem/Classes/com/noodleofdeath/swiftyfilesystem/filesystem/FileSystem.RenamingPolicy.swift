@@ -23,11 +23,14 @@
 // THE SOFTWARE.
 
 extension FileSystem {
+    
+    @available(*, unavailable, renamed: "NamingPolicy")
+    public struct RenamingPolicy {}
 
     /// Simple data structure representing a renaming policy.
-    public struct RenamingPolicy {
+    public struct NamingPolicy {
         
-        public typealias This = RenamingPolicy
+        public typealias This = NamingPolicy
         
         public struct Option: OptionSet {
             
@@ -97,7 +100,7 @@ extension FileSystem {
             var format = ""
             let versionTemplate = options.contains(.versionAsString) ? "%@" : "%d"
             if options.contains(.versionInsideParentheses) {
-                format = String(format: "\\{%@\\}", versionTemplate)
+                format = String(format: "\\(%@\\)", versionTemplate)
             } else if options.contains(.versionInsideBraces) {
                 format = String(format: "\\{%@\\}", versionTemplate)
             } else if options.contains(.versionInsideBrackets) {

@@ -67,7 +67,7 @@ public struct DataSizeUnit {
     }()
     
     /// Byte count of this data size unit.
-    public let byteCount: UInt
+    public let byteCount: Int
     
     /// Unit strings of this data size unit.
     fileprivate let units: [Format: String]
@@ -77,7 +77,7 @@ public struct DataSizeUnit {
     /// - Parameters:
     ///     - byteCount: of this data size type.
     ///     - units: of this data size type.
-    fileprivate init(byteCount: UInt, units: [Format: String]) {
+    fileprivate init(byteCount: Int, units: [Format: String]) {
         self.byteCount = byteCount
         self.units = units
     }
@@ -88,7 +88,7 @@ public struct DataSizeUnit {
     ///     - byteCount: of this data size type.
     ///     - units: of this data size type.
     fileprivate init(byteCount: Double, units: [Format: String]) {
-        self.byteCount = UInt(byteCount)
+        self.byteCount = Int(byteCount)
         self.units = units
     }
     
@@ -121,7 +121,7 @@ public struct DataSizeUnit {
     ///
     /// - Parameters:
     ///     - format: to use to display units. Default is `.short`.
-    public static func string(dataSize byteCount: UInt, decimals: Int = 0, format: Format = .conventional) -> String {
+    public static func string(dataSize byteCount: Int, decimals: Int = 0, format: Format = .conventional) -> String {
         var finalSize: Double = 0
         var units = Byte
         for unitType in values {
@@ -158,7 +158,7 @@ extension FixedWidthInteger {
     ///     - decimals: number of decmials to display. Default is `0`.
     ///     - format: to use to display units. Default is `.short`.
     public func dataSizeString(decimals: Int = 0, format: DataSizeUnit.Format = .conventional) -> String {
-        return DataSizeUnit.string(dataSize: UInt(self), decimals: decimals, format: format)
+        return DataSizeUnit.string(dataSize: Int(self), decimals: decimals, format: format)
     }
     
 }

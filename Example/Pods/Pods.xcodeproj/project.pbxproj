@@ -8,34 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		05AC4DA4605616104AA471EB74BC648A /* Pods-SwiftyFileSystem_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D995ADAEE570D914FB06883149BA56 /* Pods-SwiftyFileSystem_Tests-dummy.m */; };
-		1423BC26DBE4DBCF36D9939CFCD77984 /* Extensions.URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176B5C6A06E0849BE94A9B73DAE2901E /* Extensions.URL.swift */; };
-		27D43D59AB86614D38F85FC8B2457CD6 /* Extensions.URLFileResourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D901F158801211132BD0B0372D9B09FB /* Extensions.URLFileResourceType.swift */; };
-		3678982A3242B55E1CA0460113842A61 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = EA306E17B566DFF45EED81252B3BCA39 /* Localizable.stringsdict */; };
+		1878079EE777D1E6D2F7BC5661114E76 /* FileSystem.Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAC0FF77E37A662C08E0F75711662B7 /* FileSystem.Localization.swift */; };
+		32D2E451127CA7BB62A5DCC256C2D36A /* MIMEType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226CC96328C48CB955AA1B0257714BD3 /* MIMEType.swift */; };
+		3678982A3242B55E1CA0460113842A61 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 038010B5D74399537A61611B5394BA2E /* Localizable.stringsdict */; };
 		40EA3E5ED2A34E3E32E1CD42CD8658EC /* SwiftyFileSystem.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 368BDF3D5F674A1376E39957467CD85E /* SwiftyFileSystem.bundle */; };
 		47680EDCFC3815656500BB6E4D3A4E64 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF1E9C37CBAEFC8E697FD46D7EE8B053 /* Foundation.framework */; };
 		4EC40DF3CA1376D673A6958AD3B4501D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF1E9C37CBAEFC8E697FD46D7EE8B053 /* Foundation.framework */; };
 		4FA9491DC9D2FED01BA77D25654AD0AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF1E9C37CBAEFC8E697FD46D7EE8B053 /* Foundation.framework */; };
-		57FBF2A28714675E30A0BB377D907F46 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3D0234C47EDC49F6726505019F4C87 /* Extensions.swift */; };
-		591C5A0F2A65B3B3559ECD4464FB114D /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA61F4B5FE13EFE90934608FE4E1A6DF /* FileSystem.swift */; };
-		8CB6A7A88675554CABEEB4C50F4B531D /* FileSystem.Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FF2F13CD879FC9BB8D1E5940125275 /* FileSystem.Localization.swift */; };
-		8E29D9DF03F4CAC0D597558C18BE7DCB /* DocumentTemplateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC52465C1C6D15A047C2869AF872266D /* DocumentTemplateProvider.swift */; };
-		92C95BAD41D917C805D40BF0B5ACDFBC /* FileSystem.RenamingPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F08A64A49E76106AB2A2DCE686A4BE1 /* FileSystem.RenamingPolicy.swift */; };
+		84467A04D826404526CD2039A18A92D4 /* Extensions.URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC72D29E44BB335209B0A783EAC2840 /* Extensions.URL.swift */; };
+		8BD6A7AEB12A5D6A88F9C8F3D0EC63A0 /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8631BD3EBBA067CEF128E047EDC8B3E9 /* FileSystem.swift */; };
 		98DBCF373E738488E5F3A62C5FD94C94 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF1E9C37CBAEFC8E697FD46D7EE8B053 /* Foundation.framework */; };
-		A6C03BC4828C8E27FAE471AA4E7DF2C3 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1C0401F054FB67C6F08C325D73D09C /* Document.swift */; };
+		9FD1EE7B7A1E80C390F9CEDCD34FBFAF /* SwiftyFileSystem-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DF738614A31885AC3A82BCE78E97DC55 /* SwiftyFileSystem-dummy.m */; };
 		AB6DD018901CE4573D3A096CAD445F12 /* SwiftyUTType-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CB777D9F912405CA8A82F757D0E4E59 /* SwiftyUTType-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B1503636981D7D98A4CB67A390A7476B /* DataSizeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D3705E1D77EDD3DA271F6133396484 /* DataSizeUnit.swift */; };
 		B82A5023BF49ECE0B937696E9427F79D /* Pods-SwiftyFileSystem_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FE0ABADD84BBD0F4903AD3A1E3553F /* Pods-SwiftyFileSystem_Example-dummy.m */; };
-		B8EB0D3FCBE3139192DB9A505EEE6356 /* SwiftyFileSystem-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A27DEE3D1F2AA7D607958ABF173DAC05 /* SwiftyFileSystem-dummy.m */; };
-		BA8AD58FAB6EB0D520CA6E96ABF2A7BA /* MIMEType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C0612873A4C05A1EBB6308D193801C /* MIMEType.swift */; };
-		BC34E5D1B07D0450294D85E095DB63F5 /* DataSizeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7A080F08B03CAA0EFDF638C7E7ACF7 /* DataSizeUnit.swift */; };
+		BF5DDFD9F995D837D48183D073AE977F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACAF4D303DEE49C0D50CF6241FE6A68 /* Extensions.swift */; };
 		C70241C33C42F9CE45DDBEBDD29A2601 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A6E77AE637D3439417A3780AAC9FD3 /* Extensions.swift */; };
 		C71758EE5B57DC25AF5DAC3CB4E60A83 /* UTType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B550FB63B9EA24D4CF30CBC4A6C30 /* UTType.swift */; };
-		D73930F730A7965083775F3FF5927EA2 /* Extensions.FileManager.DirectoryEnumerationOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF98BBE0EEC4F6D43099183E7920A8E6 /* Extensions.FileManager.DirectoryEnumerationOptions.swift */; };
+		D25A47179747DC13228C506EDAB9728C /* Extensions.FileManager.DirectoryEnumerationOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180AFA82FBDA5594AB3635439F63096F /* Extensions.FileManager.DirectoryEnumerationOptions.swift */; };
 		DAD0E89B3DF347FA864F8A558F7D9AA8 /* SwiftyUTType-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C49A0D9681CF8C8ADBA0843F2288E8C6 /* SwiftyUTType-dummy.m */; };
-		EBADB9296E63A2940E44B5EBADA791CB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E61CBC7AB2D1C704CD4AD47C104D92B9 /* Localizable.strings */; };
+		DC13C80E84B5ABD494DC0AB69B842726 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = A130305AF22F8DA0893F6D2EFFA6B988 /* Document.swift */; };
+		DD5518EF7A06F8EB62D044FE3E4E28F8 /* FileSystem.RenamingPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C920154BA83317126966C8E6AF8A15 /* FileSystem.RenamingPolicy.swift */; };
+		E9EC76A795E3B18ED51E44A89A28DF1F /* Extensions.URLFileResourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD47A79372BCB73286D657FBC08139F /* Extensions.URLFileResourceType.swift */; };
+		EBADB9296E63A2940E44B5EBADA791CB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 20E5680A456C449202727B79120293CC /* Localizable.strings */; };
 		EC9EB5B3A1C0476489D6674347AE1496 /* Pods-SwiftyFileSystem_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CE80356F72E0F9C2388404110E291376 /* Pods-SwiftyFileSystem_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F421B395A3704A0FED467C141DADE5F2 /* SwiftyFileSystem-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D708AB5791E3C219F2ECFACFC1A896D /* SwiftyFileSystem-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F421B395A3704A0FED467C141DADE5F2 /* SwiftyFileSystem-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 408454CD17DC71681B7C0295DEBF4DB7 /* SwiftyFileSystem-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F49C221724478388A91D58CF56F5A4FD /* SwiftyUTType.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2EC4E1CEC123E27C843C375DE96DBB8 /* SwiftyUTType.framework */; };
 		FABC5B01DF4F5CEDC0E1009F46E95D02 /* Pods-SwiftyFileSystem_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 604031F00BA292C7ACC19BA9FC5F694B /* Pods-SwiftyFileSystem_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FE83D26FA6784FEC790CACF5A54FC093 /* Extensions.PathConcatentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD2A8807B46272A95A41B43012DCADC /* Extensions.PathConcatentation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,70 +78,70 @@
 
 /* Begin PBXFileReference section */
 		005BBCDFB9070A8CB38985E6F7F704B3 /* Pods-SwiftyFileSystem_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftyFileSystem_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		0429F52642DB7EA9A7BAD451E40C1F6E /* Localizable.stringsdict */ = {isa = PBXFileReference; includeInIndex = 1; name = Localizable.stringsdict; path = it.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		058813669C50BA5DF1271DF2A8BB7A72 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		07837F343952BD307E30994025E681FC /* Localizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		096EA67F00D1D95AAF4191D1D2C26DD4 /* Pods-SwiftyFileSystem_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftyFileSystem_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		0A9B550FB63B9EA24D4CF30CBC4A6C30 /* UTType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UTType.swift; path = SwiftyUTType/Classes/com/noodleofdeath/swiftyuttype/UTType.swift; sourceTree = "<group>"; };
-		0B2B40FA9C0603EA6C22DFCAFA26B35C /* SwiftyFileSystem.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyFileSystem.xcconfig; sourceTree = "<group>"; };
-		0DB0A725252267F1A939629E585CA3D2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E89097AC9CC76DB40FF01CCE859DE05 /* Pods-SwiftyFileSystem_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftyFileSystem_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		176B5C6A06E0849BE94A9B73DAE2901E /* Extensions.URL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Extensions.URL.swift; sourceTree = "<group>"; };
-		1C7CEEDC2CAB16D74AC9BB146AC29BE1 /* SwiftyFileSystem.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = SwiftyFileSystem.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		14517EF2024C05E3FF02CEDF788E83B0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		180AFA82FBDA5594AB3635439F63096F /* Extensions.FileManager.DirectoryEnumerationOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Extensions.FileManager.DirectoryEnumerationOptions.swift; sourceTree = "<group>"; };
 		1CB777D9F912405CA8A82F757D0E4E59 /* SwiftyUTType-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyUTType-umbrella.h"; sourceTree = "<group>"; };
-		1D708AB5791E3C219F2ECFACFC1A896D /* SwiftyFileSystem-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyFileSystem-umbrella.h"; sourceTree = "<group>"; };
 		1F479B637760A228F7FFB37ACAE2DFC1 /* Pods-SwiftyFileSystem_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftyFileSystem_Example.release.xcconfig"; sourceTree = "<group>"; };
-		1F5602CEE3289B382606060496819D40 /* Localizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1FC72D29E44BB335209B0A783EAC2840 /* Extensions.URL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Extensions.URL.swift; sourceTree = "<group>"; };
 		2260CBB8B128EBEA8DE086B8079E1A46 /* Pods-SwiftyFileSystem_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftyFileSystem_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		226CC96328C48CB955AA1B0257714BD3 /* MIMEType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MIMEType.swift; path = SwiftyFileSystem/Classes/com/noodleofdeath/swiftyfilesystem/MIMEType.swift; sourceTree = "<group>"; };
 		32312C712316A7EC0854F94E670761A7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33B35B519F9E2827993F60984BFD791A /* Localizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		33BE0481FB5C07ED7FA608A671FB1E38 /* Localizable.stringsdict */ = {isa = PBXFileReference; includeInIndex = 1; name = Localizable.stringsdict; path = es.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		3415B050070572A8D98F848547C127F6 /* SwiftyUTType.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyUTType.xcconfig; sourceTree = "<group>"; };
-		35FF2F13CD879FC9BB8D1E5940125275 /* FileSystem.Localization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FileSystem.Localization.swift; sourceTree = "<group>"; };
+		34C3E471535395B1F44DE9407562210E /* ResourceBundle-SwiftyFileSystem-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-SwiftyFileSystem-Info.plist"; sourceTree = "<group>"; };
 		368BDF3D5F674A1376E39957467CD85E /* SwiftyFileSystem.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = SwiftyFileSystem.bundle; path = "SwiftyFileSystem-SwiftyFileSystem.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		371DFC9BF696A1E1130D6567019A9732 /* Pods_SwiftyFileSystem_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SwiftyFileSystem_Example.framework; path = "Pods-SwiftyFileSystem_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3F08A64A49E76106AB2A2DCE686A4BE1 /* FileSystem.RenamingPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FileSystem.RenamingPolicy.swift; sourceTree = "<group>"; };
+		37D3705E1D77EDD3DA271F6133396484 /* DataSizeUnit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DataSizeUnit.swift; sourceTree = "<group>"; };
+		3ACAF4D303DEE49C0D50CF6241FE6A68 /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		408454CD17DC71681B7C0295DEBF4DB7 /* SwiftyFileSystem-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyFileSystem-umbrella.h"; sourceTree = "<group>"; };
 		4D366EF38F7820E088C249366E86AC00 /* Pods-SwiftyFileSystem_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftyFileSystem_Tests-resources.sh"; sourceTree = "<group>"; };
-		4E7CBE6E869A8954C8DA306794563F70 /* SwiftyFileSystem.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftyFileSystem.modulemap; sourceTree = "<group>"; };
-		5A7A080F08B03CAA0EFDF638C7E7ACF7 /* DataSizeUnit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DataSizeUnit.swift; sourceTree = "<group>"; };
+		55BCD936A7878456D48D96AB90F960CF /* SwiftyFileSystem-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyFileSystem-prefix.pch"; sourceTree = "<group>"; };
 		604031F00BA292C7ACC19BA9FC5F694B /* Pods-SwiftyFileSystem_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftyFileSystem_Tests-umbrella.h"; sourceTree = "<group>"; };
 		68BB4BFB4669FE5D5C8A6EE83B136D01 /* Pods_SwiftyFileSystem_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SwiftyFileSystem_Tests.framework; path = "Pods-SwiftyFileSystem_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F3F5138F475A8A5BCD19708277DCBA7 /* SwiftyFileSystem.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = SwiftyFileSystem.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		6FCB8BB827E82620A6D368FD5703B139 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		7249C47B99747D2935B34E1638A8A255 /* Pods-SwiftyFileSystem_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftyFileSystem_Example-frameworks.sh"; sourceTree = "<group>"; };
-		740D561264CE44AD3B1B4559DFDB9EAB /* Localizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7BD2A8807B46272A95A41B43012DCADC /* Extensions.PathConcatentation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Extensions.PathConcatentation.swift; sourceTree = "<group>"; };
 		85DF1479FB0C3ADDE477796BCA9DB9BA /* Pods-SwiftyFileSystem_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftyFileSystem_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		8631BD3EBBA067CEF128E047EDC8B3E9 /* FileSystem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FileSystem.swift; sourceTree = "<group>"; };
 		86A6E77AE637D3439417A3780AAC9FD3 /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = SwiftyUTType/Classes/com/noodleofdeath/swiftyuttype/extensions/Extensions.swift; sourceTree = "<group>"; };
+		8EAC0FF77E37A662C08E0F75711662B7 /* FileSystem.Localization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FileSystem.Localization.swift; sourceTree = "<group>"; };
 		8F701E373EE382887918988B51B52C3B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9C4DB853323843B5BFA8F83A82EB743A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		9BD47A79372BCB73286D657FBC08139F /* Extensions.URLFileResourceType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Extensions.URLFileResourceType.swift; sourceTree = "<group>"; };
 		9F494E56C4B86786A484809C69443C5F /* Pods-SwiftyFileSystem_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftyFileSystem_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		A27DEE3D1F2AA7D607958ABF173DAC05 /* SwiftyFileSystem-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyFileSystem-dummy.m"; sourceTree = "<group>"; };
+		A130305AF22F8DA0893F6D2EFFA6B988 /* Document.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		A4D995ADAEE570D914FB06883149BA56 /* Pods-SwiftyFileSystem_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftyFileSystem_Tests-dummy.m"; sourceTree = "<group>"; };
 		A5D48D60274FFCDAEB7BA2DB6368F36B /* Pods-SwiftyFileSystem_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SwiftyFileSystem_Example.modulemap"; sourceTree = "<group>"; };
-		AB60B7B1E64AD09EF5D20B423CEA25A5 /* SwiftyFileSystem-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyFileSystem-prefix.pch"; sourceTree = "<group>"; };
 		AE285302C282E7D22FEBA3071971ECA0 /* SwiftyFileSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyFileSystem.framework; path = SwiftyFileSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF1E9C37CBAEFC8E697FD46D7EE8B053 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		B2F85C779CEF3C0E9B9C96996E39F162 /* Pods-SwiftyFileSystem_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SwiftyFileSystem_Tests.modulemap"; sourceTree = "<group>"; };
 		B3FE0ABADD84BBD0F4903AD3A1E3553F /* Pods-SwiftyFileSystem_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftyFileSystem_Example-dummy.m"; sourceTree = "<group>"; };
-		B45EE5D3AF068B39BAE546FE59B829D3 /* Localizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B5F016029B39B0FF06A211F278D5FB4C /* Pods-SwiftyFileSystem_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftyFileSystem_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		B6C920154BA83317126966C8E6AF8A15 /* FileSystem.RenamingPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FileSystem.RenamingPolicy.swift; sourceTree = "<group>"; };
+		B78041ED30383AA5317EB89862B651A9 /* SwiftyFileSystem.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftyFileSystem.modulemap; sourceTree = "<group>"; };
+		BAA489B7C41C618F156C75EDC9B421A5 /* Localizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BEA1293284536EC68A0B237B6EC67F5C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF98BBE0EEC4F6D43099183E7920A8E6 /* Extensions.FileManager.DirectoryEnumerationOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Extensions.FileManager.DirectoryEnumerationOptions.swift; sourceTree = "<group>"; };
 		BFC5857C7B0D64C287C2840DBBFDF57B /* SwiftyUTType.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyUTType.framework; path = SwiftyUTType.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C0B9E6D237C31FAADF05A8892F2D230F /* Localizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C2D7481A09902422F5B0671B25AF3808 /* Localizable.stringsdict */ = {isa = PBXFileReference; includeInIndex = 1; name = Localizable.stringsdict; path = Base.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		C2EC4E1CEC123E27C843C375DE96DBB8 /* SwiftyUTType.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyUTType.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C49A0D9681CF8C8ADBA0843F2288E8C6 /* SwiftyUTType-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyUTType-dummy.m"; sourceTree = "<group>"; };
 		C72D7D7638E804A8D6DE9C018F06FE97 /* SwiftyUTType.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftyUTType.modulemap; sourceTree = "<group>"; };
 		CAE3161AACD2521AF2D0B3C2E16133F1 /* Pods-SwiftyFileSystem_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftyFileSystem_Example-resources.sh"; sourceTree = "<group>"; };
 		CE80356F72E0F9C2388404110E291376 /* Pods-SwiftyFileSystem_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftyFileSystem_Example-umbrella.h"; sourceTree = "<group>"; };
-		D7C0612873A4C05A1EBB6308D193801C /* MIMEType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MIMEType.swift; path = SwiftyFileSystem/Classes/com/noodleofdeath/swiftyfilesystem/MIMEType.swift; sourceTree = "<group>"; };
-		D901F158801211132BD0B0372D9B09FB /* Extensions.URLFileResourceType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Extensions.URLFileResourceType.swift; sourceTree = "<group>"; };
-		DE3D0234C47EDC49F6726505019F4C87 /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		E0618EE4067E92295FE8130A6E738863 /* Localizable.stringsdict */ = {isa = PBXFileReference; includeInIndex = 1; name = Localizable.stringsdict; path = es.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
-		E358FFC7B3E7039738CEA9984A726CC3 /* Localizable.stringsdict */ = {isa = PBXFileReference; includeInIndex = 1; name = Localizable.stringsdict; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
-		EC52465C1C6D15A047C2869AF872266D /* DocumentTemplateProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DocumentTemplateProvider.swift; sourceTree = "<group>"; };
-		F262C90A9BBC96E4AC184619CF570979 /* ResourceBundle-SwiftyFileSystem-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-SwiftyFileSystem-Info.plist"; sourceTree = "<group>"; };
+		D0FED905871D9DC553DBEDC15FF67623 /* Localizable.stringsdict */ = {isa = PBXFileReference; includeInIndex = 1; name = Localizable.stringsdict; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		D45D85C42000EBDFEA56236CA373FDC8 /* SwiftyFileSystem.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyFileSystem.xcconfig; sourceTree = "<group>"; };
+		DF738614A31885AC3A82BCE78E97DC55 /* SwiftyFileSystem-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyFileSystem-dummy.m"; sourceTree = "<group>"; };
+		E25C991DC7884A17E88F60875F06ACFC /* Localizable.stringsdict */ = {isa = PBXFileReference; includeInIndex = 1; name = Localizable.stringsdict; path = it.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		E5206C707BF8B83266DDAE832196E85D /* Localizable.stringsdict */ = {isa = PBXFileReference; includeInIndex = 1; name = Localizable.stringsdict; path = Base.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		F3717AD8E57F3A7EB86AC974557636F2 /* SwiftyUTType-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyUTType-prefix.pch"; sourceTree = "<group>"; };
-		F5F4C8EB5393E5A127692D62826418FE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		F5576760789B46ADE952D92C65881BFC /* Localizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F6040BDEEFFA0714F85FC2B5650F07A4 /* Pods-SwiftyFileSystem_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftyFileSystem_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		FA61F4B5FE13EFE90934608FE4E1A6DF /* FileSystem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FileSystem.swift; sourceTree = "<group>"; };
-		FD1C0401F054FB67C6F08C325D73D09C /* Document.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,21 +188,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		06468BA8B2A9931CBBED04F40964683F /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				0DB0A725252267F1A939629E585CA3D2 /* Info.plist */,
-				F262C90A9BBC96E4AC184619CF570979 /* ResourceBundle-SwiftyFileSystem-Info.plist */,
-				4E7CBE6E869A8954C8DA306794563F70 /* SwiftyFileSystem.modulemap */,
-				0B2B40FA9C0603EA6C22DFCAFA26B35C /* SwiftyFileSystem.xcconfig */,
-				A27DEE3D1F2AA7D607958ABF173DAC05 /* SwiftyFileSystem-dummy.m */,
-				AB60B7B1E64AD09EF5D20B423CEA25A5 /* SwiftyFileSystem-prefix.pch */,
-				1D708AB5791E3C219F2ECFACFC1A896D /* SwiftyFileSystem-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/SwiftyFileSystem";
-			sourceTree = "<group>";
-		};
 		18D068E99B11677327438123BA147287 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,37 +197,12 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		2D9EA6C693A8C48DB240A9176BE86667 /* SwiftyFileSystem */ = {
+		221FCBD43D16E1D35261CA9B7F0CB804 /* filesystem */ = {
 			isa = PBXGroup;
 			children = (
-				D7C0612873A4C05A1EBB6308D193801C /* MIMEType.swift */,
-				30B56EC69C021FB0DCC2194C58A84563 /* datasizeunit */,
-				5D276F9525169959F036F780E1EC7C9F /* document */,
-				97DDD97E8EF0AA5F25D8E3ABC62E0C10 /* extensions */,
-				30D7E710DFAE43B64F128B76E8EC242F /* filesystem */,
-				C81394995F2D114C3734088A240E5375 /* Pod */,
-				61D45A80CC3E4EBD7157FE1CC54778D3 /* Resources */,
-				06468BA8B2A9931CBBED04F40964683F /* Support Files */,
-			);
-			name = SwiftyFileSystem;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		30B56EC69C021FB0DCC2194C58A84563 /* datasizeunit */ = {
-			isa = PBXGroup;
-			children = (
-				5A7A080F08B03CAA0EFDF638C7E7ACF7 /* DataSizeUnit.swift */,
-			);
-			name = datasizeunit;
-			path = SwiftyFileSystem/Classes/com/noodleofdeath/swiftyfilesystem/datasizeunit;
-			sourceTree = "<group>";
-		};
-		30D7E710DFAE43B64F128B76E8EC242F /* filesystem */ = {
-			isa = PBXGroup;
-			children = (
-				FA61F4B5FE13EFE90934608FE4E1A6DF /* FileSystem.swift */,
-				35FF2F13CD879FC9BB8D1E5940125275 /* FileSystem.Localization.swift */,
-				3F08A64A49E76106AB2A2DCE686A4BE1 /* FileSystem.RenamingPolicy.swift */,
+				8631BD3EBBA067CEF128E047EDC8B3E9 /* FileSystem.swift */,
+				8EAC0FF77E37A662C08E0F75711662B7 /* FileSystem.Localization.swift */,
+				B6C920154BA83317126966C8E6AF8A15 /* FileSystem.RenamingPolicy.swift */,
 			);
 			name = filesystem;
 			path = SwiftyFileSystem/Classes/com/noodleofdeath/swiftyfilesystem/filesystem;
@@ -269,31 +229,28 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		3F9BF54FA9C42CD4B09FD2B7BF79F852 /* SwiftyFileSystem */ = {
+			isa = PBXGroup;
+			children = (
+				226CC96328C48CB955AA1B0257714BD3 /* MIMEType.swift */,
+				965658C9D3BD5D1C25B3CA243F7CDCE3 /* datasizeunit */,
+				6FD596F7756A25FCC3F5CC51F2581FAD /* document */,
+				7F75B6864145F9071927D35D9583809C /* extensions */,
+				221FCBD43D16E1D35261CA9B7F0CB804 /* filesystem */,
+				782F9B4A178EF61B50036C82514E380B /* Pod */,
+				BB24C9D383CA35B67A033595CDB37E0F /* Resources */,
+				67AA218D4AD29CCE2569AA8E52BEEFD4 /* Support Files */,
+			);
+			name = SwiftyFileSystem;
+			path = ../..;
+			sourceTree = "<group>";
+		};
 		591C56F5D1D9E4472CA71F4DB5ADE945 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2D9EA6C693A8C48DB240A9176BE86667 /* SwiftyFileSystem */,
+				3F9BF54FA9C42CD4B09FD2B7BF79F852 /* SwiftyFileSystem */,
 			);
 			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		5D276F9525169959F036F780E1EC7C9F /* document */ = {
-			isa = PBXGroup;
-			children = (
-				FD1C0401F054FB67C6F08C325D73D09C /* Document.swift */,
-				EC52465C1C6D15A047C2869AF872266D /* DocumentTemplateProvider.swift */,
-			);
-			name = document;
-			path = SwiftyFileSystem/Classes/com/noodleofdeath/swiftyfilesystem/document;
-			sourceTree = "<group>";
-		};
-		61D45A80CC3E4EBD7157FE1CC54778D3 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				E61CBC7AB2D1C704CD4AD47C104D92B9 /* Localizable.strings */,
-				EA306E17B566DFF45EED81252B3BCA39 /* Localizable.stringsdict */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 		665DC20B04750E1545051A887DD56860 /* SwiftyUTType */ = {
@@ -307,6 +264,40 @@
 			path = SwiftyUTType;
 			sourceTree = "<group>";
 		};
+		67AA218D4AD29CCE2569AA8E52BEEFD4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				14517EF2024C05E3FF02CEDF788E83B0 /* Info.plist */,
+				34C3E471535395B1F44DE9407562210E /* ResourceBundle-SwiftyFileSystem-Info.plist */,
+				B78041ED30383AA5317EB89862B651A9 /* SwiftyFileSystem.modulemap */,
+				D45D85C42000EBDFEA56236CA373FDC8 /* SwiftyFileSystem.xcconfig */,
+				DF738614A31885AC3A82BCE78E97DC55 /* SwiftyFileSystem-dummy.m */,
+				55BCD936A7878456D48D96AB90F960CF /* SwiftyFileSystem-prefix.pch */,
+				408454CD17DC71681B7C0295DEBF4DB7 /* SwiftyFileSystem-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/SwiftyFileSystem";
+			sourceTree = "<group>";
+		};
+		6FD596F7756A25FCC3F5CC51F2581FAD /* document */ = {
+			isa = PBXGroup;
+			children = (
+				A130305AF22F8DA0893F6D2EFFA6B988 /* Document.swift */,
+			);
+			name = document;
+			path = SwiftyFileSystem/Classes/com/noodleofdeath/swiftyfilesystem/document;
+			sourceTree = "<group>";
+		};
+		782F9B4A178EF61B50036C82514E380B /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				058813669C50BA5DF1271DF2A8BB7A72 /* LICENSE */,
+				6FCB8BB827E82620A6D368FD5703B139 /* README.md */,
+				6F3F5138F475A8A5BCD19708277DCBA7 /* SwiftyFileSystem.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
@@ -317,6 +308,19 @@
 				3A590BD8EE5E01217BF166ED45E70B6A /* Products */,
 				18D068E99B11677327438123BA147287 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		7F75B6864145F9071927D35D9583809C /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3ACAF4D303DEE49C0D50CF6241FE6A68 /* Extensions.swift */,
+				180AFA82FBDA5594AB3635439F63096F /* Extensions.FileManager.DirectoryEnumerationOptions.swift */,
+				7BD2A8807B46272A95A41B43012DCADC /* Extensions.PathConcatentation.swift */,
+				1FC72D29E44BB335209B0A783EAC2840 /* Extensions.URL.swift */,
+				9BD47A79372BCB73286D657FBC08139F /* Extensions.URLFileResourceType.swift */,
+			);
+			name = extensions;
+			path = SwiftyFileSystem/Classes/com/noodleofdeath/swiftyfilesystem/extensions;
 			sourceTree = "<group>";
 		};
 		822EF7A8C4D5EF015D4BEF013DA8F0CD /* Pods-SwiftyFileSystem_Tests */ = {
@@ -363,26 +367,22 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		97DDD97E8EF0AA5F25D8E3ABC62E0C10 /* extensions */ = {
+		965658C9D3BD5D1C25B3CA243F7CDCE3 /* datasizeunit */ = {
 			isa = PBXGroup;
 			children = (
-				DE3D0234C47EDC49F6726505019F4C87 /* Extensions.swift */,
-				BF98BBE0EEC4F6D43099183E7920A8E6 /* Extensions.FileManager.DirectoryEnumerationOptions.swift */,
-				176B5C6A06E0849BE94A9B73DAE2901E /* Extensions.URL.swift */,
-				D901F158801211132BD0B0372D9B09FB /* Extensions.URLFileResourceType.swift */,
+				37D3705E1D77EDD3DA271F6133396484 /* DataSizeUnit.swift */,
 			);
-			name = extensions;
-			path = SwiftyFileSystem/Classes/com/noodleofdeath/swiftyfilesystem/extensions;
+			name = datasizeunit;
+			path = SwiftyFileSystem/Classes/com/noodleofdeath/swiftyfilesystem/datasizeunit;
 			sourceTree = "<group>";
 		};
-		C81394995F2D114C3734088A240E5375 /* Pod */ = {
+		BB24C9D383CA35B67A033595CDB37E0F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9C4DB853323843B5BFA8F83A82EB743A /* LICENSE */,
-				F5F4C8EB5393E5A127692D62826418FE /* README.md */,
-				1C7CEEDC2CAB16D74AC9BB146AC29BE1 /* SwiftyFileSystem.podspec */,
+				20E5680A456C449202727B79120293CC /* Localizable.strings */,
+				038010B5D74399537A61611B5394BA2E /* Localizable.stringsdict */,
 			);
-			name = Pod;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		E5F51CD34553AFC1088D62C3B6F24480 /* Pods */ = {
@@ -450,7 +450,7 @@
 			buildConfigurationList = 367C5694F6F502DE191C2CE3EDBA3D23 /* Build configuration list for PBXNativeTarget "SwiftyFileSystem" */;
 			buildPhases = (
 				8B6D1387A16FF9DFC9DF0D585DDF4269 /* Headers */,
-				4BEE55617EDAC37F3C57DDF4C7887733 /* Sources */,
+				967932997F85392C10AA92BAE09F68D2 /* Sources */,
 				609CFBEE29E165A9A15904907E7357DC /* Frameworks */,
 				3CAE9EC780F0881FAF2EAD345DE9BEBE /* Resources */,
 			);
@@ -611,29 +611,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4BEE55617EDAC37F3C57DDF4C7887733 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BC34E5D1B07D0450294D85E095DB63F5 /* DataSizeUnit.swift in Sources */,
-				A6C03BC4828C8E27FAE471AA4E7DF2C3 /* Document.swift in Sources */,
-				8E29D9DF03F4CAC0D597558C18BE7DCB /* DocumentTemplateProvider.swift in Sources */,
-				D73930F730A7965083775F3FF5927EA2 /* Extensions.FileManager.DirectoryEnumerationOptions.swift in Sources */,
-				57FBF2A28714675E30A0BB377D907F46 /* Extensions.swift in Sources */,
-				1423BC26DBE4DBCF36D9939CFCD77984 /* Extensions.URL.swift in Sources */,
-				27D43D59AB86614D38F85FC8B2457CD6 /* Extensions.URLFileResourceType.swift in Sources */,
-				8CB6A7A88675554CABEEB4C50F4B531D /* FileSystem.Localization.swift in Sources */,
-				92C95BAD41D917C805D40BF0B5ACDFBC /* FileSystem.RenamingPolicy.swift in Sources */,
-				591C5A0F2A65B3B3559ECD4464FB114D /* FileSystem.swift in Sources */,
-				BA8AD58FAB6EB0D520CA6E96ABF2A7BA /* MIMEType.swift in Sources */,
-				B8EB0D3FCBE3139192DB9A505EEE6356 /* SwiftyFileSystem-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		6009F3550A1C534CC69FE8D388B0C29A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		967932997F85392C10AA92BAE09F68D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1503636981D7D98A4CB67A390A7476B /* DataSizeUnit.swift in Sources */,
+				DC13C80E84B5ABD494DC0AB69B842726 /* Document.swift in Sources */,
+				D25A47179747DC13228C506EDAB9728C /* Extensions.FileManager.DirectoryEnumerationOptions.swift in Sources */,
+				FE83D26FA6784FEC790CACF5A54FC093 /* Extensions.PathConcatentation.swift in Sources */,
+				BF5DDFD9F995D837D48183D073AE977F /* Extensions.swift in Sources */,
+				84467A04D826404526CD2039A18A92D4 /* Extensions.URL.swift in Sources */,
+				E9EC76A795E3B18ED51E44A89A28DF1F /* Extensions.URLFileResourceType.swift in Sources */,
+				1878079EE777D1E6D2F7BC5661114E76 /* FileSystem.Localization.swift in Sources */,
+				DD5518EF7A06F8EB62D044FE3E4E28F8 /* FileSystem.RenamingPolicy.swift in Sources */,
+				8BD6A7AEB12A5D6A88F9C8F3D0EC63A0 /* FileSystem.swift in Sources */,
+				32D2E451127CA7BB62A5DCC256C2D36A /* MIMEType.swift in Sources */,
+				9FD1EE7B7A1E80C390F9CEDCD34FBFAF /* SwiftyFileSystem-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -699,27 +699,27 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E61CBC7AB2D1C704CD4AD47C104D92B9 /* Localizable.strings */ = {
+		038010B5D74399537A61611B5394BA2E /* Localizable.stringsdict */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B45EE5D3AF068B39BAE546FE59B829D3 /* Localizable.strings */,
-				1F5602CEE3289B382606060496819D40 /* Localizable.strings */,
-				740D561264CE44AD3B1B4559DFDB9EAB /* Localizable.strings */,
-				C0B9E6D237C31FAADF05A8892F2D230F /* Localizable.strings */,
+				E5206C707BF8B83266DDAE832196E85D /* Localizable.stringsdict */,
+				D0FED905871D9DC553DBEDC15FF67623 /* Localizable.stringsdict */,
+				33BE0481FB5C07ED7FA608A671FB1E38 /* Localizable.stringsdict */,
+				E25C991DC7884A17E88F60875F06ACFC /* Localizable.stringsdict */,
 			);
-			name = Localizable.strings;
+			name = Localizable.stringsdict;
 			path = SwiftyFileSystem/Assets;
 			sourceTree = "<group>";
 		};
-		EA306E17B566DFF45EED81252B3BCA39 /* Localizable.stringsdict */ = {
+		20E5680A456C449202727B79120293CC /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C2D7481A09902422F5B0671B25AF3808 /* Localizable.stringsdict */,
-				E358FFC7B3E7039738CEA9984A726CC3 /* Localizable.stringsdict */,
-				E0618EE4067E92295FE8130A6E738863 /* Localizable.stringsdict */,
-				0429F52642DB7EA9A7BAD451E40C1F6E /* Localizable.stringsdict */,
+				07837F343952BD307E30994025E681FC /* Localizable.strings */,
+				33B35B519F9E2827993F60984BFD791A /* Localizable.strings */,
+				BAA489B7C41C618F156C75EDC9B421A5 /* Localizable.strings */,
+				F5576760789B46ADE952D92C65881BFC /* Localizable.strings */,
 			);
-			name = Localizable.stringsdict;
+			name = Localizable.strings;
 			path = SwiftyFileSystem/Assets;
 			sourceTree = "<group>";
 		};
@@ -728,7 +728,7 @@
 /* Begin XCBuildConfiguration section */
 		11B06FCBDE135EBD47E79090FDAFEB1F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0B2B40FA9C0603EA6C22DFCAFA26B35C /* SwiftyFileSystem.xcconfig */;
+			baseConfigurationReference = D45D85C42000EBDFEA56236CA373FDC8 /* SwiftyFileSystem.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -852,7 +852,7 @@
 		};
 		5F06044DD97EE44F4378D41DDBFBFC0A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0B2B40FA9C0603EA6C22DFCAFA26B35C /* SwiftyFileSystem.xcconfig */;
+			baseConfigurationReference = D45D85C42000EBDFEA56236CA373FDC8 /* SwiftyFileSystem.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SwiftyFileSystem";
@@ -1001,7 +1001,7 @@
 		};
 		BBCA7DE707EBEA5C4427258DD76AC414 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0B2B40FA9C0603EA6C22DFCAFA26B35C /* SwiftyFileSystem.xcconfig */;
+			baseConfigurationReference = D45D85C42000EBDFEA56236CA373FDC8 /* SwiftyFileSystem.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SwiftyFileSystem";
@@ -1018,7 +1018,7 @@
 		};
 		D05352AF02F175EE36E42C32418B3CC7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0B2B40FA9C0603EA6C22DFCAFA26B35C /* SwiftyFileSystem.xcconfig */;
+			baseConfigurationReference = D45D85C42000EBDFEA56236CA373FDC8 /* SwiftyFileSystem.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
