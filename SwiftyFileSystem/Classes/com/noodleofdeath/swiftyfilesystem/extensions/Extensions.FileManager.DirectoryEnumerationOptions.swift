@@ -26,6 +26,7 @@ import Foundation
 
 extension FileManager.DirectoryEnumerationOptions {
     
+    /// Enumeration option for skipping symbolic links.
     public static let skipsSymbolicLinks = FileManager.DirectoryEnumerationOptions(rawValue: 1 << 13)
     
     /// Returns true if a specified document is permitted by the mask

@@ -80,6 +80,11 @@ extension FileSystem {
             self = .automatic
         }
         
+        @available(*, unavailable, renamed: "init(options:maxRenamingAttempts:)")
+        public init(options: Option, maximumAllowedRenamingAttempts: Int = .max) {
+            fatalError()
+        }
+        
         /// Constructs a new renaming policy with an initial format string.
         ///
         /// - Parameters:
@@ -119,6 +124,11 @@ extension FileSystem {
         }
         
         // MARK: - Instance Methods
+        
+        @available(*, unavailable, renamed: "with(options:maxRenamingAttempts:)")
+        public func with(options: Option, maximumAllowedRenamingAttempts: Int) -> This {
+            fatalError()
+        }
         
         /// Contructs and returns a new renaming policy from this existing
         /// policy.

@@ -26,6 +26,7 @@ import Foundation
 
 extension URL {
     
+    /// Resource type of this URL. Returns `unknown` if unattainable.
     public var resourceType: URLFileResourceType {
         return ((try? resourceValues(forKeys: [.fileResourceTypeKey]))?.fileResourceType) ?? .unknown
     }

@@ -52,7 +52,7 @@ public enum MIMEType: String {
     case Binary = "application/octet-stream"
     
     /// Byte offset to mime-type map.
-    public static var map: [UInt8: This] = [
+    public static var byteMap: [UInt8: This] = [
         0xFF: .JPEG,
         0x89: .PNG,
         0x47: .GIF,
@@ -65,7 +65,7 @@ public enum MIMEType: String {
     
     /// Constucts a new mime type from a byte offset.
     public init(byteOffset: UInt8) {
-        self = This.map[byteOffset] ?? .Binary
+        self = This.byteMap[byteOffset] ?? .Binary
     }
     
 }
