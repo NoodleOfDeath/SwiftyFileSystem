@@ -29,6 +29,10 @@ import UIKit
 // You may modify this file and the scope of various extensions as needed
 // for personal projects, but not when committing to the repository.
 
+// MARK: - Path Component Concatentation Infix Operator
+
+infix operator +/ : AdditionPrecedence
+
 // MARK: - Optional Assignment Operator
 
 infix operator ?= : AssignmentPrecedence
@@ -136,6 +140,21 @@ extension CGRect {
         set { size.width = newValue }
     }
     
+    var center: CGPoint {
+        get { return CGPoint(x: midX, y: midY) }
+        set { (x, y) = (newValue.x - width / 2, newValue.y - height / 2) }
+    }
+    
+    /// Offset width of this view. Returns `x + width`.
+    var offsetWidth: CGFloat {
+        return x + width
+    }
+    
+    /// Offset height of this view. Returns `y + height`.
+    var offsetHeight: CGFloat {
+        return y + height
+    }
+    
 }
 
 // MARK: - CGSize Extensions
@@ -164,16 +183,6 @@ extension CGSize {
             self.rawValue = rawValue
         }
         
-    }
-    
-    ///
-    init?(dict: [String: Any]?) {
-        guard
-            let dict = dict,
-            let width = dict[Key.width.rawValue] as? CGFloat,
-            let height = dict[Key.height.rawValue] as? CGFloat
-            else { return nil }
-        self.init(width: width, height: height)
     }
     
     ///
@@ -227,47 +236,6 @@ extension NSAttributedString {
     /// Range of this attributed string.
     /// Shorthand for `string.range`.
     var range: NSRange { return string.range }
-    
-}
-
-// MARK: - NSAttributedStringKey Class Extensions
-extension NSAttributedStringKey {
-    
-    /// Attribute name key for tint color.
-    static let tintColor
-        = NSAttributedStringKey("NSTintColor")
-    
-    /// Attribute name key for alpha.
-    static let alpha
-        = NSAttributedStringKey("NSAlpha")
-    
-    /// Attribute name key for point size.
-    static let pointSize
-        = NSAttributedStringKey("NSPointSize")
-    
-    /// Attribute name key for icon tint color.
-    static let iconTintColor
-        = NSAttributedStringKey("NSIconTintColor")
-    
-    /// Attribute name key for icon alpha.
-    static let iconAlpha
-        = NSAttributedStringKey("NSIconAlpha")
-    
-    /// Attribute name key for icon shadow.
-    static let iconShadow
-        = NSAttributedStringKey("NSIconShadow")
-    
-    /// Attribute name key for shadow color.
-    static let shadowColor
-        = NSAttributedStringKey("NSShadowColor")
-    
-    /// Attribute name key for shadow blur radius.
-    static let shadowBlurRadius
-        = NSAttributedStringKey("NSShadowBlurRadius")
-    
-    /// Attribute name key for shadow offset.
-    static let shadowOffset
-        = NSAttributedStringKey("NSShadowOffset")
     
 }
 
@@ -392,20 +360,19 @@ extension NSRange {
 // MARK: - NSShadow Extensions
 extension NSShadow {
     
+    /// UI type casted color of this shadow.
     var color: UIColor? {
-        return shadowColor as? UIColor
+        get { return shadowColor as? UIColor }
+        set { shadowColor = newValue }
     }
     
+    /// CG type casted color of this shadow.
     var cgColor: CGColor? {
-        return color?.cgColor
-    }
-    
-    convenience init?(dict: [NSAttributedStringKey: Any]?) {
-        guard let dict = dict else { return nil }
-        self.init()
-        shadowColor = UIColor(dict: dict[.shadowColor] as? [NSAttributedStringKey: Any])
-        shadowBlurRadius = dict[.shadowBlurRadius] as? CGFloat ?? 0
-        shadowOffset = CGSize(dict: dict[.shadowOffset] as? [String: Any]) ?? .zero
+        get { return color?.cgColor }
+        set {
+            guard let cgColor = newValue else { color = nil; return }
+            color = UIColor(cgColor: cgColor)
+        }
     }
     
 }
@@ -903,6 +870,42 @@ extension String {
                             context: context).height
     }
     
+    func row(forOffset offset: Int) -> Int {
+        var length = 0
+        var n = 0
+        for match in ".*\r?\n".matches(in: self) {
+            if offset >= length && offset < length + match.range.length {
+                return n
+            }
+            n += 1
+            length += match.range.length
+        }
+        return -1
+    }
+    
+    func column(forOffset offset: Int) -> Int {
+        return offset - ns.paragraphRange(for: NSMakeRange(offset, 0)).location
+    }
+    
+}
+
+// MARK: - String Path Concatenation
+extension String {
+    
+    static func +/ (lhs: String, rhs: String) -> String {
+        return lhs.appendingPathComponent(rhs)
+    }
+    
+    static func +/ (lhs: String?, rhs: String) -> String? {
+        guard let lhs = lhs else { return nil }
+        return lhs.appendingPathComponent(rhs)
+    }
+    
+    static func +/ (lhs: String, rhs: String?) -> String? {
+        guard let rhs = rhs else { return nil }
+        return lhs.appendingPathComponent(rhs)
+    }
+    
 }
 
 extension String {
@@ -1050,6 +1053,11 @@ extension UIBarButtonItem {
         return UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
     }
     
+    ///
+    convenience init(title: String?, style: UIBarButtonItem.Style = .plain) {
+        self.init(title: title, style: style, target: nil, action: nil)
+    }
+    
 }
 
 // MARK: - UIColor Constructor Extensions
@@ -1067,6 +1075,20 @@ extension UIColor {
             let iAlpha = UInt(fAlpha * 255.0)
             let rgba = (iAlpha << 24) + (iRed << 16) + (iGreen << 8) + iBlue
             return rgba
+        }
+        return nil
+    }
+    
+    var rgbValue: UInt? {
+        var fRed: CGFloat = 0
+        var fGreen: CGFloat = 0
+        var fBlue: CGFloat = 0
+        if getRed(&fRed, green: &fGreen, blue: &fBlue, alpha: nil) {
+            let iRed = UInt(fRed * 255.0)
+            let iGreen = UInt(fGreen * 255.0)
+            let iBlue = UInt(fBlue * 255.0)
+            let rgb = (iRed << 16) + (iGreen << 8) + iBlue
+            return rgb
         }
         return nil
     }
@@ -1090,6 +1112,18 @@ extension UIColor {
     /// Creates a new `UIColor` instance from a specified unsigned integer
     /// and alpha float.
     ///
+    /// Overload for `init(_: UInt, alpha: CGFloat?)`
+    ///
+    /// - Parameters:
+    ///   - hex: that represents the RGB saturations of this color.
+    ///   - alpha: of this color.
+    convenience init(_ hex: Int, alpha: CGFloat? = nil) {
+        self.init(UInt(hex), alpha: alpha)
+    }
+    
+    /// Creates a new `UIColor` instance from a specified unsigned integer
+    /// and alpha float.
+    ///
     /// - Parameters:
     ///   - hex: that represents the RGB saturations of this color.
     ///   - alpha: of this color.
@@ -1098,17 +1132,6 @@ extension UIColor {
                   green: CGFloat((hex & 0x00FF00) >> 8) / 255.0,
                   blue: CGFloat(hex & 0x0000FF) / 255.0,
                   alpha: alpha ?? (hex > 0xFFFFFF ? (CGFloat((hex & 0xFF000000) >> 24) / 255.0) : 1.0))
-    }
-    
-    /// Creates a new `UIColor` instance from a specified dictionary
-    /// with `NSAttributedStringKey` keys.
-    ///
-    /// - Parameters:
-    ///     - dict: to initialize this color from.
-    convenience init?(dict: [NSAttributedStringKey: Any]?) {
-        guard let dict = dict else { return nil }
-        guard let hex = dict[.foregroundColor] as? UInt else { return nil }
-        self.init(hex, alpha: dict[.alpha] as? CGFloat)
     }
     
 }
@@ -1129,6 +1152,44 @@ extension UIColor {
         return color.withAlphaComponent(alpha)
     }
     
+    /// Creates a new `UIColor` instance from a specified color and with
+    /// a specified alpha component.
+    /// Shorthand for `color.widthAlphaComponent(alpha)`.
+    ///
+    /// - Parameters:
+    ///   - color: to generate a new color from.
+    ///   - factor: component to use for the new color.
+    /// - Returns: a new `UIColor` instance of `color` with an alpha component
+    /// of `alpha`.
+    static func ** (color: UIColor, factor: CGFloat) -> UIColor {
+        var fRed: CGFloat = 0
+        var fGreen: CGFloat = 0
+        var fBlue: CGFloat = 0
+        var fAlpha: CGFloat = 0
+        if color.getRed(&fRed, green: &fGreen, blue: &fBlue, alpha: &fAlpha) {
+            let iRed = UInt(fRed * factor * 255.0)
+            let iGreen = UInt(fGreen * factor * 255.0)
+            let iBlue = UInt(fBlue * factor * 255.0)
+            let iAlpha = UInt(fAlpha * 255.0)
+            let rgb = (iRed << 16) + (iGreen << 8) + iBlue
+            return UIColor(rgb, alpha: CGFloat(iAlpha))
+        }
+        return color
+    }
+    
+}
+
+/// Creates a new `UIColor` instance from a specified color and with
+/// a specified alpha component.
+/// Shorthand for `color.widthAlphaComponent(alpha)`.
+///
+/// - Parameters:
+///   - color: to generate a new color from.
+///   - alpha: component to use for the new color.
+/// - Returns: a new `UIColor` instance of `color` with an alpha component
+/// of `alpha`.
+func * (color: UIColor?, alpha: CGFloat) -> UIColor? {
+    return color?.withAlphaComponent(alpha)
 }
 
 // MARK: - UIDevice Platform Extension
@@ -1293,13 +1354,6 @@ extension UIDevice {
 
 // MARK: - UIFont Constructor Extensions
 extension UIFont {
-    
-    convenience init?(dict: [NSAttributedStringKey: Any]?) {
-        guard let dict = dict else { return nil }
-        guard let font = dict[.font] as? String else { return nil }
-        let pointSize = dict[.pointSize] as? CGFloat ?? UIFont.systemFontSize
-        self.init(name: font, size: pointSize)
-    }
     
     /// Returns a system font instance with point size set to
     /// `UIFont.systemFontSize`.
@@ -1469,6 +1523,16 @@ extension UIView {
         set { size.height = newValue }
     }
     
+    /// Offset width of this view. Returns `x + width`.
+    var offsetWidth: CGFloat {
+        return x + width
+    }
+    
+    /// Offset height of this view. Returns `y + height`.
+    var offsetHeight: CGFloat {
+        return y + height
+    }
+    
 }
 
 extension UIView {
@@ -1530,6 +1594,25 @@ extension URL {
         return URL(fileURLWithPath: resolvingSymlinksInPath().path, relativeTo: baseURL)
     }
     
+}
+
+// MARK: - URL Path Concatenation
+extension URL {
+    
+    static func +/ (lhs: URL, rhs: String) -> URL {
+        return lhs.appendingPathComponent(rhs)
+    }
+    
+    static func +/ (lhs: URL, rhs: String?) -> URL? {
+        guard let rhs = rhs else { return nil }
+        return lhs.appendingPathComponent(rhs)
+    }
+    
+}
+
+func +/ (lhs: URL?, rhs: String) -> URL? {
+    guard let lhs = lhs else { return nil }
+    return lhs.appendingPathComponent(rhs)
 }
 
 // MARK: - UserDefaults Subscript Extensions
