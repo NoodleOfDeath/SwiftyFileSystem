@@ -1,13 +1,13 @@
 PODS:
-  - SwiftyFileSystem (1.0.2):
-    - SwiftyUTType
-  - SwiftyUTType (1.0.0)
+  - SwiftyFileSystem (1.0.3):
+    - SwiftyUTType (~> 1.0)
+  - SwiftyUTType (1.0.3)
 
 DEPENDENCIES:
   - SwiftyFileSystem (from `../`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - SwiftyUTType
 
 EXTERNAL SOURCES:
@@ -15,9 +15,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  SwiftyFileSystem: bd2035052ce5c927fa39f64959780888a25798c0
-  SwiftyUTType: ee9c7b80276bedc5f170b1149199befb411a6186
+  SwiftyFileSystem: c08cb3671fc6616dba651387709aa7a14098c3d7
+  SwiftyUTType: 865cf090ab1a58a0fe8c5e9cbbcf56749e67abdd
 
-PODFILE CHECKSUM: 3ae7ea5055129cca8a3a555cb7c4bcad0d968c0b
+PODFILE CHECKSUM: b4f9296603360401b9383deae3ff309d3608fa80
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.9.1

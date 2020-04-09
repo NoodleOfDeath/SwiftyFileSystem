@@ -37,22 +37,22 @@ public struct DataSizeUnit {
     }
     
     /// Unit for byte
-    public static let Byte = This(byteCount: 10 ** 0, units: [.short: "B", .long: "bytes", .conventional: "bytes"])
+    public static let Byte = This(byteCount: pow(10, 0), units: [.short: "B", .long: "bytes", .conventional: "bytes"])
     
     /// Unit for kilobyte (KB)
-    public static let Kilobyte = This(byteCount: 10 ** 3, units: [.short: "KB", .long: "kilobytes", .conventional: "KB"])
+    public static let Kilobyte = This(byteCount: pow(10, 3), units: [.short: "KB", .long: "kilobytes", .conventional: "KB"])
     
     /// Unit for megabyte (MB)
-    public static let Megabyte = This(byteCount: 10 ** 6, units: [.short: "MB", .long: "megabytes", .conventional: "MB"])
+    public static let Megabyte = This(byteCount: pow(10, 6), units: [.short: "MB", .long: "megabytes", .conventional: "MB"])
     
     /// Unit for gigabyte (GB)
-    public static let Gigabyte = This(byteCount: 10 ** 9, units: [.short: "GB", .long: "gigabytes", .conventional: "GB"])
+    public static let Gigabyte = This(byteCount: pow(10, 9), units: [.short: "GB", .long: "gigabytes", .conventional: "GB"])
     
     /// Unit for terabyte (TB)
-    public static let Terabyte = This(byteCount: 10 ** 12, units: [.short: "TB", .long: "terabytes", .conventional: "TB"])
+    public static let Terabyte = This(byteCount: pow(10, 12), units: [.short: "TB", .long: "terabytes", .conventional: "TB"])
     
     /// Unit for petabyte (PB)
-    public static let Petabyte = This(byteCount: 10 ** 15, units: [.short: "PB", .long: "petabytes", .conventional: "PB"])
+    public static let Petabyte = This(byteCount: pow(10, 15), units: [.short: "PB", .long: "petabytes", .conventional: "PB"])
     
     /// All data size unit types in order of largest to smallest.
     public static let values: [This] = {

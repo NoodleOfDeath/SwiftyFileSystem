@@ -23,10 +23,13 @@
 // THE SOFTWARE.
 
 import AVFoundation
-import MobileCoreServices
-import UIKit
+import CoreServices
 
 import SwiftyUTType
+
+#if os(iOS)
+
+import UIKit
 
 /// A complex extension of `UIDocument` that provides convenience methods for
 /// accessing/modifying the contents and attributes of a document.
@@ -95,7 +98,7 @@ open class Document: UIDocument {
     /// The mime type of this document.
     open var mimeType: MIMEType {
         guard let contents = contents, contents.count > 0 else { return .Binary }
-        return MIMEType(byteOffset: contents.withUnsafeBytes { $0 }[0])
+        return .Binary
     }
     
     /// Underlying contents of this document if, and only if, it is not a directory.
@@ -135,8 +138,7 @@ open class Document: UIDocument {
         }
         set {
             guard let newValue = newValue else { contents = nil; return }
-            contents = Data(bytes: UnsafePointer<UInt8>(newValue),
-                            count: newValue.lengthOfBytes(using: textEncoding))
+            contents = Data(bytes: newValue, count: newValue.lengthOfBytes(using: textEncoding))
         }
     }
     
@@ -274,13 +276,13 @@ open class Document: UIDocument {
     }
     
     /// Shorthand for `save(to: fileURL)`.
-    open func save(for saveOperation: UIDocumentSaveOperation = .forCreating,
+    open func save(for saveOperation: UIDocument.SaveOperation = .forCreating,
                    completionHandler: ((Bool) -> ())? = nil) {
         save(to: fileURL, for: saveOperation, completionHandler: completionHandler)
     }
     
     override open func save(to fileURL: URL, 
-                            for saveOperation: UIDocumentSaveOperation = .forCreating,
+                            for saveOperation: UIDocument.SaveOperation = .forCreating,
                             completionHandler: ((Bool) -> ())? = nil) {
         
         var success = false
@@ -380,7 +382,7 @@ extension Document {
         case _ where uttype.conforms(to: .Video, .Movie):
             let asset = AVURLAsset(url: fileURL)
             let imgGenerator = AVAssetImageGenerator(asset: asset)
-            guard let cgImage = try? imgGenerator.copyCGImage(at: CMTimeMake(Int64(asset.duration.seconds / 2), 1), actualTime: nil) else { return nil }
+            guard let cgImage = try? imgGenerator.copyCGImage(at: CMTimeMake(value: Int64(asset.duration.seconds / 2), timescale: 1), actualTime: nil) else { return nil }
             return UIImage(cgImage: cgImage)
             
         default:
@@ -391,3 +393,5 @@ extension Document {
     }
     
 }
+
+#endif

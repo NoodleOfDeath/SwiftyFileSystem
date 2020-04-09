@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0447A092243F8247007E96BB /* Extensions.RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447A090243F807E007E96BB /* Extensions.RawRepresentable.swift */; };
 		045F985B223970ED00A23C52 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045F985A223970ED00A23C52 /* Extensions.swift */; };
 		045F985C2239714900A23C52 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B733D4676AD09A0E631DA110 /* README.md */; };
 		045F985D2239714900A23C52 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B733D4676AD09A0E631DA110 /* README.md */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0447A090243F807E007E96BB /* Extensions.RawRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.RawRepresentable.swift; sourceTree = "<group>"; };
 		045F985A223970ED00A23C52 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		045F985E223971DD00A23C52 /* TestFiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestFiles; sourceTree = "<group>"; };
 		3895CA7216219ABFD161C80B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -130,10 +132,11 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				045F985E223971DD00A23C52 /* TestFiles */,
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				0447A090243F807E007E96BB /* Extensions.RawRepresentable.swift */,
 				045F985A223970ED00A23C52 /* Extensions.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
+				045F985E223971DD00A23C52 /* TestFiles */,
+				607FACEB1AFB9204008FA782 /* Tests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -220,11 +223,11 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1140;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1140;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
@@ -234,6 +237,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -277,23 +281,19 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyFileSystem_Example/Pods-SwiftyFileSystem_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftyFileSystem_Example/Pods-SwiftyFileSystem_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SwiftyFileSystem/SwiftyFileSystem.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyUTType/SwiftyUTType.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyFileSystem.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUTType.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyFileSystem_Example/Pods-SwiftyFileSystem_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftyFileSystem_Example/Pods-SwiftyFileSystem_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		295D28E01FC37D0709925958 /* [CP] Check Pods Manifest.lock */ = {
@@ -356,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0447A092243F8247007E96BB /* Extensions.RawRepresentable.swift in Sources */,
 				045F985B223970ED00A23C52 /* Extensions.swift in Sources */,
 				045F98642239819400A23C52 /* Tests.swift in Sources */,
 			);
@@ -500,12 +501,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SwiftyFileSystem/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -515,12 +518,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SwiftyFileSystem/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -541,7 +546,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftyFileSystem_Example.app/SwiftyFileSystem_Example";
 			};
 			name = Debug;
@@ -559,7 +564,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftyFileSystem_Example.app/SwiftyFileSystem_Example";
 			};
 			name = Release;
