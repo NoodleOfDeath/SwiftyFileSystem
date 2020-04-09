@@ -90,6 +90,17 @@ extension URL {
     public func isHidden(includeInferred: Bool = true) -> Bool {
         return isHidden && (!includeInferred || (includeInferred && isInferredHidden))
     }
+
+    /// Destination path of this URL.
+    public var destination: String? {
+        return FileSystem.destinationOfSymbolicLink(atPath: path)
+    }
+
+    /// Destination fileURL of this symbolic link.
+    public var destinationURL: URL? {
+        guard let destination = destination else { return nil }
+        return URL(string: destination, relativeTo: self)?.absoluteURL
+    }
     
     /// The file size of this resource, if, and only if, it is not a directory.
     public var fileSize: Int {

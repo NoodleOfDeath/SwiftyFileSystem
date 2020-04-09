@@ -44,20 +44,16 @@ open class Document: UIDocument {
     open var parentDirectoryURL: URL { return fileURL.deletingLastPathComponent() }
     
     ///
-    fileprivate var _symbolicDestinationURL: URL?
+    fileprivate var _destinationURL: URL?
     
     /// Destination URL if this document is a symbolic link.
-    open var symbolicDestinationURL: URL? {
-        get {
-            if _symbolicDestinationURL == nil && isSymbolicLink {
-                if let path = FileSystem.destinationOfSymbolicLink(atPath: fileURL.path) {
-                    _symbolicDestinationURL = URL(fileURLWithPath: fileURL.path.deletingLastPathComponent +/ path)
-                }
-            }
-            return _symbolicDestinationURL
-        }
-        set { _symbolicDestinationURL = newValue }
+    open var destinationURL: URL? {
+        get { return _destinationURL ?? originalFileURL.destinationURL }
+        set { _destinationURL = newValue }
     }
+
+    /// Original fileURL of this document if it was a symbolic link.
+    public let originalFileURL: URL
     
     /// Remote location of this document if it is located on a remote client.
     open var remoteURL: URL?
@@ -91,8 +87,8 @@ open class Document: UIDocument {
     /// Underlying resource which will return the destination document
     /// of this document if, and only if, it is a symbolic link.
     open var absoluteResource: Document {
-        guard resourceType == .symbolicLink, let symbolicDestinationURL = symbolicDestinationURL else { return self }
-        return Document(fileURL: symbolicDestinationURL)
+        guard resourceType == .symbolicLink, let destinationURL = destinationURL else { return self }
+        return Document(fileURL: destinationURL)
     }
     
     /// The mime type of this document.
@@ -143,29 +139,29 @@ open class Document: UIDocument {
     }
     
     /// `true` if, and only if, a resource physically exists at `fileURL`.
-    open var fileExists: Bool { return fileURL.fileExists }
+    open var fileExists: Bool { return originalFileURL.fileExists }
     
     /// `true` if, and only if, this document is a local document resource.
-    open var isLocal: Bool { return fileURL.isLocal }
+    open var isLocal: Bool { return originalFileURL.isLocal }
     
     /// `true` if this item is synced to the cloud, `false` if it is only a
     /// local file.
-    open var isUbiquitous: Bool { return fileURL.isUbiquitous }
+    open var isUbiquitous: Bool { return originalFileURL.isUbiquitous }
     
     /// `true` if, and only if, this document is a regular file, or symbolic link to a regular file.
-   open var isRegularFile: Bool { return fileURL.isRegularFile }
+   open var isRegularFile: Bool { return originalFileURL.isRegularFile }
     
     /// `true` if, and only if, this document is a directory, or symbolic link to a directory.
-    open var isDirectory: Bool { return fileURL.isDirectory }
+    open var isDirectory: Bool { return originalFileURL.isDirectory }
     
     /// `true` if, and only if, this document is a symbolic link.
-    open var isSymbolicLink: Bool { return fileURL.isSymbolicLink }
+    open var isSymbolicLink: Bool { return originalFileURL.isSymbolicLink }
     
     /// `true` if, and only if, the filename of this document begins with `.` or `~`.
-    open var isInferredHidden: Bool { return fileURL.isInferredHidden }
+    open var isInferredHidden: Bool { return originalFileURL.isInferredHidden }
     
     /// `true` for resources normally not displayed to users.
-    open var isHidden: Bool { return fileURL.isHidden }
+    open var isHidden: Bool { return originalFileURL.isHidden }
     
     /// Returns `true` if this document is hidden, using a specified
     /// `includeInferred` flag to allow documents prefixed with `.` or `~`,
@@ -184,14 +180,12 @@ open class Document: UIDocument {
     }
     
     /// The file size of this document if, and only if, it is not a directory.
-    open var fileSize: Int { return fileURL.fileSize }
+    open var fileSize: Int { return originalFileURL.fileSize }
     
     /// Synchronously calculates the recursive size of all contents contained
     /// in this resource if it is a directroy, or returns a file size if this
     /// resource is a regular file.
-    open var sizeOfContents: Int {
-        return fileURL.sizeOfContents
-    }
+    open var sizeOfContents: Int { return originalFileURL.sizeOfContents }
     
     /// Attempts to asynchronously calculate the size of all resources contained
     /// in this file if it is a directory and callack a specified completion
@@ -200,7 +194,7 @@ open class Document: UIDocument {
     /// - Parameters:
     ///     - completionHandler: block to run when the calculation is complete.
     public func sizeOfContents(completionHandler: @escaping (Int) -> ()) {
-        fileURL.sizeOfContents(completionHandler: completionHandler)
+        originalFileURL.sizeOfContents(completionHandler: completionHandler)
     }
     
     /// Number of files contained in this resource, if, and only if, it is a
@@ -220,29 +214,30 @@ open class Document: UIDocument {
     /// and only if, it is a directory and using specified resource keys and
     /// enumerating options.
     public func fileCount(includingPropertiesForKeys resourceKeys: [URLResourceKey] = [], options: FileManager.DirectoryEnumerationOptions = [.skipsSubdirectoryDescendants]) -> Int {
-        return fileURL.fileCount(includingPropertiesForKeys: resourceKeys, options: options)
+        return originalFileURL.fileCount(includingPropertiesForKeys: resourceKeys, options: options)
     }
     
     /// Date this resource was created or `distantFuture` if unobtainable.
-    open var creationDate: Date { return fileURL.creationDate }
+    open var creationDate: Date { return originalFileURL.creationDate }
     
     /// Date this resource was last accessed or `distantFuture` if unobtainable.
-    open var contentAccessDate: Date { return fileURL.contentAccessDate }
+    open var contentAccessDate: Date { return originalFileURL.contentAccessDate }
     
     /// Date this resource was last modified choosing the most recent between
     /// `attributeModificationDate` and `contentModificationDate` or
     /// `distantFuture` if unobtainable.
-    open var modificationDate: Date { return fileURL.modificationDate }
+    open var modificationDate: Date { return originalFileURL.modificationDate }
     
     /// Date the the attributes of this resource were last modified.
-    open var attributeModificationDate: Date { return fileURL.attributeModificationDate }
+    open var attributeModificationDate: Date { return originalFileURL.attributeModificationDate }
     
     /// Date the the contents of this resource were last modified.
-    open var contentModificationDate: Date { return fileURL.contentModificationDate }
+    open var contentModificationDate: Date { return originalFileURL.contentModificationDate }
     
     // MARK: - Constructor Methods
     
     override required public init(fileURL: URL) {
+        self.originalFileURL = fileURL
         super.init(fileURL: fileURL)
     }
     
@@ -278,7 +273,7 @@ open class Document: UIDocument {
     /// Shorthand for `save(to: fileURL)`.
     open func save(for saveOperation: UIDocument.SaveOperation = .forCreating,
                    completionHandler: ((Bool) -> ())? = nil) {
-        save(to: fileURL, for: saveOperation, completionHandler: completionHandler)
+        save(to: originalFileURL, for: saveOperation, completionHandler: completionHandler)
     }
     
     override open func save(to fileURL: URL, 
@@ -328,11 +323,11 @@ open class Document: UIDocument {
             break
             
         case .symbolicLink:
-            guard let symbolicDestinationURL = symbolicDestinationURL else {
+            guard let destinationURL = destinationURL else {
                 completionHandler?(false)
                 return
             }
-            success = FileSystem.createSymbolicLink(at: fileURL, withDestinationURL: symbolicDestinationURL)
+            success = FileSystem.createSymbolicLink(at: fileURL, withDestinationURL: destinationURL)
             break
             
         default:
@@ -377,10 +372,10 @@ extension Document {
         switch uttype {
             
         case _ where uttype.conforms(to: .Image):
-            return UIImage(contentsOfFile: fileURL.path)?.scalingAndCropping(to: dimensions)
+            return UIImage(contentsOfFile: originalFileURL.path)?.scalingAndCropping(to: dimensions)
             
         case _ where uttype.conforms(to: .Video, .Movie):
-            let asset = AVURLAsset(url: fileURL)
+            let asset = AVURLAsset(url: originalFileURL)
             let imgGenerator = AVAssetImageGenerator(asset: asset)
             guard let cgImage = try? imgGenerator.copyCGImage(at: CMTimeMake(value: Int64(asset.duration.seconds / 2), timescale: 1), actualTime: nil) else { return nil }
             return UIImage(cgImage: cgImage)

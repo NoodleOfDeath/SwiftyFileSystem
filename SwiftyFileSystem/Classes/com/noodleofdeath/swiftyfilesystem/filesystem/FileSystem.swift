@@ -155,24 +155,6 @@ open class FileSystem {
         }
     }
     
-    /// Creates a symbolic link at the specified path that points to a specifed
-    /// destination path.
-    ///
-    /// - Parameters:
-    ///     - src: path at which to create a symbolic link.
-    ///     - dst: path to assign to the symbolic link.
-    /// - Returns: `true` if the operation was successful; `false`, otherwise.
-    @discardableResult
-    open class func createSymbolicLink(atPath src: String, withDestinationPath dst: String) -> Bool {
-        do {
-            try FileManager.default.createSymbolicLink(atPath: src, withDestinationPath: dst)
-            return true
-        } catch {
-            print(error.localizedDescription)
-            return false
-        }
-    }
-    
     /// Creates a symbolic link at the specified url that points to a specifed
     /// destination url.
     ///
@@ -184,6 +166,40 @@ open class FileSystem {
     open class func createSymbolicLink(at url: URL, withDestinationURL destinationURL: URL) -> Bool {
         do {
             try FileManager.default.createSymbolicLink(at: url, withDestinationURL: destinationURL)
+            return true
+        } catch {
+            print(error.localizedDescription)
+            return false
+        }
+    }
+
+    /// Creates a symbolic link at the specified url that points to a specifed
+    /// destination url.
+    ///
+    /// - Parameters:
+    ///     - url: at which to create a symbolic link.
+    ///     - destinationPath: to assign to the symbolic link.
+    /// - Returns: `true` if the operation was successful; `false`, otherwise.
+    @discardableResult
+    open class func createSymbolicLink(at url: URL, withDestinationPath destinationPath: String) -> Bool {
+        guard let dst = URL(string: destinationPath, relativeTo: url) else { return false }
+        return createSymbolicLink(at: url, withDestinationURL: dst)
+    }
+
+    /// Creates a symbolic link at the specified path that points to a specifed
+    /// destination path.
+    ///
+    /// - Parameters:
+    ///     - src: path at which to create a symbolic link.
+    ///     - dst: path to assign to the symbolic link.
+    /// - Returns: `true` if the operation was successful; `false`, otherwise.
+    @discardableResult
+    open class func createSymbolicLink(atPath src: String, withDestinationPath dst: String) -> Bool {
+        if dst.starts(with: ".."), let dst = URL(string: dst, relativeTo: src.fileURL)?.absoluteURL {
+            return createSymbolicLink(at: src.fileURL, withDestinationURL: dst)
+        }
+        do {
+            try FileManager.default.createSymbolicLink(atPath: src, withDestinationPath: dst)
             return true
         } catch {
             print(error.localizedDescription)

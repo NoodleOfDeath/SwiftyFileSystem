@@ -97,6 +97,24 @@ class Tests: XCTestCase {
         print(url.contentAccessDate)
         print(url.modificationDate)
 
+        let dst = testDirectory +/ "TestFile.txt"
+        XCTAssertEqual(url.destinationURL, dst)
+        XCTAssertEqual(url.destinationURL?.fileExists, dst.fileExists)
+        XCTAssertEqual(url.destinationURL?.isLocal, dst.isLocal)
+        XCTAssertEqual(url.destinationURL?.isUbiquitous, dst.isUbiquitous)
+        XCTAssertEqual(url.destinationURL?.isRegularFile, dst.isRegularFile)
+        XCTAssertEqual(url.destinationURL?.isDirectory, dst.isDirectory)
+        XCTAssertEqual(url.destinationURL?.isSymbolicLink, dst.isSymbolicLink)
+        XCTAssertEqual(url.destinationURL?.isInferredHidden, dst.isInferredHidden)
+        XCTAssertEqual(url.destinationURL?.isHidden, dst.isHidden)
+        XCTAssertEqual(url.destinationURL?.fileSize.dataSizeString(), dst.fileSize.dataSizeString())
+        XCTAssertEqual(url.destinationURL?.sizeOfContents.dataSizeString(), dst.sizeOfContents.dataSizeString())
+        XCTAssertEqual(String(format: "%d file(s)", url.destinationURL?.fileCount ?? 99),
+                       String(format: "%d file(s)", dst.fileCount))
+        XCTAssertEqual(url.destinationURL?.creationDate, dst.creationDate)
+        XCTAssertEqual(url.destinationURL?.contentAccessDate, dst.contentAccessDate)
+        XCTAssertEqual(url.destinationURL?.modificationDate, dst.modificationDate)
+
     }
 
     func testURLHiddenFile() {
@@ -223,9 +241,6 @@ class Tests: XCTestCase {
 
     func testDocumentSymbolicLink() {
 
-        // Skip this test for now
-        return
-
         guard let testDirectory = (Bundle(for: type(of: self)).resourcePath +/ "TestFiles")?.fileURL
             else { XCTFail("Unable to load test files directory."); return }
 
@@ -299,7 +314,56 @@ class Tests: XCTestCase {
         
         XCTAssertEqual(FileSystem.contentsOfDirectory(atPath: dst).count, 0)
         XCTAssertEqual(FileSystem.contentsOfDirectory(atPath: dst2).count, 11)
+
+        if FileSystem.createSymbolicLink(atPath: dst +/ "TestLink", withDestinationPath: "TestFile.txt") {
+
+            let url = (testDirectory +/ "TestLink").fileURL
+            let url2 = (testDirectory +/ "TestFile.txt").fileURL
+            XCTAssertEqual(url.destinationURL, url2)
+
+            let document = Document(fileURL: url)
+
+            let openExpectation = self.expectation(description: "DocumentOpen")
+            let closeExpectation = self.expectation(description: "DocumentClose")
+            document.open {
+                guard $0 else { XCTFail(); return }
+                XCTAssertEqual("This is a test file\n", document.textContents ?? "")
+                openExpectation.fulfill()
+                document.close {
+                    guard $0 else { XCTFail(); return }
+                    closeExpectation.fulfill()
+                }
+            }
+
+            waitForExpectations(timeout: 5, handler: nil)
+
+        } else {
+            XCTFail()
+        }
+
+        if FileSystem.createSymbolicLink(atPath: dst +/ "TestDirLink", withDestinationPath: "../FileSystemTests") {
+            let url = (dst +/ "TestDirLink").fileURL
+            let url2 = dst.fileURL
+            XCTAssertEqual(url.destinationURL?.fileExists, url2.fileExists)
+            XCTAssertEqual(url.destinationURL?.isLocal, url2.isLocal)
+            XCTAssertEqual(url.destinationURL?.isUbiquitous, url2.isUbiquitous)
+            XCTAssertEqual(url.destinationURL?.isRegularFile, url2.isRegularFile)
+            XCTAssertEqual(url.destinationURL?.isDirectory, url2.isDirectory)
+            XCTAssertEqual(url.destinationURL?.isSymbolicLink, url2.isSymbolicLink)
+            XCTAssertEqual(url.destinationURL?.isInferredHidden, url2.isInferredHidden)
+            XCTAssertEqual(url.destinationURL?.isHidden, url2.isHidden)
+            XCTAssertEqual(url.destinationURL?.fileSize.dataSizeString(), url2.fileSize.dataSizeString())
+            XCTAssertEqual(url.destinationURL?.sizeOfContents.dataSizeString(), url2.sizeOfContents.dataSizeString())
+            XCTAssertEqual(String(format: "%d file(s)", url.destinationURL?.fileCount ?? 99),
+                           String(format: "%d file(s)", url2.fileCount))
+            XCTAssertEqual(url.destinationURL?.creationDate, url2.creationDate)
+            XCTAssertEqual(url.destinationURL?.modificationDate, url2.modificationDate)
+        } else {
+            XCTFail()
+        }
         
     }
     
 }
+
+
