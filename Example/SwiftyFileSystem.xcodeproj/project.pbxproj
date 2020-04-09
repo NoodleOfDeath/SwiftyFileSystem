@@ -34,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		0447A090243F807E007E96BB /* Extensions.RawRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.RawRepresentable.swift; sourceTree = "<group>"; };
+		0447A093243F82BC007E96BB /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
 		045F985A223970ED00A23C52 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		045F985E223971DD00A23C52 /* TestFiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestFiles; sourceTree = "<group>"; };
 		3895CA7216219ABFD161C80B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -152,6 +153,7 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
+				0447A093243F82BC007E96BB /* .travis.yml */,
 				8656482C83F4608DF23123BB /* SwiftyFileSystem.podspec */,
 				B733D4676AD09A0E631DA110 /* README.md */,
 				3895CA7216219ABFD161C80B /* LICENSE */,

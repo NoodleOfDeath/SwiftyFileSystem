@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 
-    s.name             = 'SwiftyFileSystem'
+  s.name             = 'SwiftyFileSystem'
   s.version          = '1.0.3'
   s.summary          = 'Lightweight framework for effortlessly working with filesystems in swift.'
 

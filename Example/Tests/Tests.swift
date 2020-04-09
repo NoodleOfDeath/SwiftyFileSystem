@@ -28,132 +28,238 @@ import SwiftyFileSystem
 /// A non-comprehensive unit test.
 class Tests: XCTestCase {
     
-    func testPrint() {
-        
-        guard let testDirectory = (Bundle(for: type(of: self)).resourcePath +/ "TestFiles")?.fileURL
-            else { XCTFail("Unable to load test files directory."); return }
-        
-        print(testDirectory.fileExists)
-        print(testDirectory.isLocal)
-        print(testDirectory.isUbiquitous)
-        print(testDirectory.isRegularFile)
-        print(testDirectory.isDirectory)
-        print(testDirectory.isSymbolicLink)
-        print(testDirectory.isInferredHidden)
-        print(testDirectory.isHidden)
-        print(testDirectory.fileSize.dataSizeString())
-        print(testDirectory.sizeOfContents.dataSizeString())
-        print(String(format: "%d file(s)", testDirectory.fileCount))
-        print(testDirectory.creationDate)
-        print(testDirectory.contentAccessDate)
-        print(testDirectory.modificationDate)
-        
-        let testFile = testDirectory +/ "TestFile.txt"
-        print(testFile.fileExists)
-        print(testFile.isLocal)
-        print(testFile.isUbiquitous)
-        print(testFile.isRegularFile)
-        print(testFile.isDirectory)
-        print(testFile.isSymbolicLink)
-        print(testFile.isInferredHidden)
-        print(testFile.isHidden)
-        print(testFile.fileSize.dataSizeString())
-        print(testFile.sizeOfContents.dataSizeString())
-        print(String(format: "%d file(s)", testFile.fileCount))
-        print(testFile.creationDate)
-        print(testFile.contentAccessDate)
-        print(testFile.modificationDate)
-        
-        let hiddenTestFile = testDirectory +/ ".HiddenTestFile"
-        print(hiddenTestFile.fileExists)
-        print(hiddenTestFile.isLocal)
-        print(hiddenTestFile.isUbiquitous)
-        print(hiddenTestFile.isRegularFile)
-        print(hiddenTestFile.isDirectory)
-        print(hiddenTestFile.isSymbolicLink)
-        print(hiddenTestFile.isInferredHidden)
-        print(hiddenTestFile.isHidden)
-        print(hiddenTestFile.fileSize.dataSizeString())
-        print(hiddenTestFile.sizeOfContents.dataSizeString())
-        print(String(format: "%d file(s)", hiddenTestFile.fileCount))
-        print(hiddenTestFile.creationDate)
-        print(hiddenTestFile.contentAccessDate)
-        print(hiddenTestFile.modificationDate)
-        
-        let inferredHiddenTestFile = testDirectory +/ "~InferredHiddenTestFile"
-        print(inferredHiddenTestFile.fileExists)
-        print(inferredHiddenTestFile.isLocal)
-        print(inferredHiddenTestFile.isUbiquitous)
-        print(inferredHiddenTestFile.isRegularFile)
-        print(inferredHiddenTestFile.isDirectory)
-        print(inferredHiddenTestFile.isSymbolicLink)
-        print(inferredHiddenTestFile.isInferredHidden)
-        print(inferredHiddenTestFile.isHidden)
-        print(inferredHiddenTestFile.fileSize.dataSizeString())
-        print(inferredHiddenTestFile.sizeOfContents.dataSizeString())
-        print(String(format: "%d file(s)", inferredHiddenTestFile.fileCount))
-        print(inferredHiddenTestFile.creationDate)
-        print(inferredHiddenTestFile.contentAccessDate)
-        print(inferredHiddenTestFile.modificationDate)
-        
-    }
-    
-    func testURLProperties() {
+    func testURLDirectory() {
         
         guard let testDirectory = (Bundle(for: type(of: self)).resourcePath +/ "TestFiles")?.fileURL
             else { XCTFail("Unable to load test files directory."); return }
         
         // URL resource properties
         
-        XCTAssert(testDirectory.fileExists)
-        XCTAssert(testDirectory.isLocal)
-        XCTAssert(!testDirectory.isUbiquitous)
-        XCTAssert(!testDirectory.isRegularFile)
-        XCTAssert(testDirectory.isDirectory)
-        XCTAssert(!testDirectory.isSymbolicLink)
-        XCTAssert(!testDirectory.isInferredHidden)
-        XCTAssert(!testDirectory.isHidden)
+        XCTAssertTrue(testDirectory.fileExists)
+        XCTAssertTrue(testDirectory.isLocal)
+        XCTAssertFalse(testDirectory.isUbiquitous)
+        XCTAssertFalse(testDirectory.isRegularFile)
+        XCTAssertTrue(testDirectory.isDirectory)
+        XCTAssertFalse(testDirectory.isSymbolicLink)
+        XCTAssertFalse(testDirectory.isInferredHidden)
+        XCTAssertFalse(testDirectory.isHidden)
+        XCTAssertEqual("0 bytes", testDirectory.fileSize.dataSizeString())
+        XCTAssertEqual("72 bytes", testDirectory.sizeOfContents.dataSizeString())
+        XCTAssertEqual("4 file(s)", String(format: "%d file(s)", testDirectory.fileCount))
+        print(testDirectory.creationDate)
+        print(testDirectory.contentAccessDate)
+        print(testDirectory.modificationDate)
 
-        let testFile = testDirectory +/ "TestFile.txt"
-        XCTAssert(testFile.fileExists)
-        XCTAssert(testFile.isLocal)
-        XCTAssert(!testFile.isUbiquitous)
-        XCTAssert(testFile.isRegularFile)
-        XCTAssert(!testFile.isDirectory)
-        XCTAssert(!testFile.isSymbolicLink)
-        XCTAssert(!testFile.isInferredHidden)
-        XCTAssert(!testFile.isHidden)
+    }
+
+    func testURLRegularFile() {
+
+        guard let testDirectory = (Bundle(for: type(of: self)).resourcePath +/ "TestFiles")?.fileURL
+            else { XCTFail("Unable to load test files directory."); return }
+
+        let url = testDirectory +/ "TestFile.txt"
+        XCTAssertTrue(url.fileExists)
+        XCTAssertTrue(url.isLocal)
+        XCTAssertFalse(url.isUbiquitous)
+        XCTAssertTrue(url.isRegularFile)
+        XCTAssertFalse(url.isDirectory)
+        XCTAssertFalse(url.isSymbolicLink)
+        XCTAssertFalse(url.isInferredHidden)
+        XCTAssertFalse(url.isHidden)
+        XCTAssertEqual("20 bytes", url.fileSize.dataSizeString())
+        XCTAssertEqual("20 bytes", url.sizeOfContents.dataSizeString())
+        XCTAssertEqual("0 file(s)", String(format: "%d file(s)", url.fileCount))
+        print(url.creationDate)
+        print(url.contentAccessDate)
+        print(url.modificationDate)
+
+    }
+
+    func testURLSymbolicLink() {
+
+        guard let testDirectory = (Bundle(for: type(of: self)).resourcePath +/ "TestFiles")?.fileURL
+            else { XCTFail("Unable to load test files directory."); return }
         
-        let testLink = testDirectory +/ "TestLink"
-        XCTAssert(testLink.fileExists)
-        XCTAssert(testLink.isLocal)
-        XCTAssert(!testLink.isUbiquitous)
-        XCTAssert(!testLink.isRegularFile)
-        XCTAssert(!testLink.isDirectory)
-        XCTAssert(testLink.isSymbolicLink)
-        XCTAssert(!testFile.isInferredHidden)
-        XCTAssert(!testFile.isHidden)
+        let url = testDirectory +/ "TestLink"
+        XCTAssertTrue(url.fileExists)
+        XCTAssertTrue(url.isLocal)
+        XCTAssertFalse(url.isUbiquitous)
+        XCTAssertFalse(url.isRegularFile)
+        XCTAssertFalse(url.isDirectory)
+        XCTAssertTrue(url.isSymbolicLink)
+        XCTAssertFalse(url.isInferredHidden)
+        XCTAssertFalse(url.isHidden)
+        XCTAssertEqual("12 bytes", url.fileSize.dataSizeString())
+        XCTAssertEqual("12 bytes", url.sizeOfContents.dataSizeString())
+        XCTAssertEqual("12 bytes", url.sizeOfContents.dataSizeString())
+        XCTAssertEqual("0 file(s)", String(format: "%d file(s)", url.fileCount))
+        print(url.creationDate)
+        print(url.contentAccessDate)
+        print(url.modificationDate)
+
+    }
+
+    func testURLHiddenFile() {
+
+        guard let testDirectory = (Bundle(for: type(of: self)).resourcePath +/ "TestFiles")?.fileURL
+            else { XCTFail("Unable to load test files directory."); return }
         
-        let hiddenTestFile = testDirectory +/ ".HiddenTestFile"
-        XCTAssert(hiddenTestFile.fileExists)
-        XCTAssert(hiddenTestFile.isLocal)
-        XCTAssert(!hiddenTestFile.isUbiquitous)
-        XCTAssert(hiddenTestFile.isRegularFile)
-        XCTAssert(!hiddenTestFile.isDirectory)
-        XCTAssert(!hiddenTestFile.isSymbolicLink)
-        XCTAssert(hiddenTestFile.isInferredHidden)
-        XCTAssert(hiddenTestFile.isHidden)
+        let url = testDirectory +/ ".HiddenTestFile"
+        XCTAssertTrue(url.fileExists)
+        XCTAssertTrue(url.isLocal)
+        XCTAssertFalse(url.isUbiquitous)
+        XCTAssertTrue(url.isRegularFile)
+        XCTAssertFalse(url.isDirectory)
+        XCTAssertFalse(url.isSymbolicLink)
+        XCTAssertTrue(url.isInferredHidden)
+        XCTAssertTrue(url.isHidden)
+        XCTAssertEqual("20 bytes", url.fileSize.dataSizeString())
+        XCTAssertEqual("20 bytes", url.sizeOfContents.dataSizeString())
+        XCTAssertEqual("0 file(s)", String(format: "%d file(s)", url.fileCount))
+        print(url.creationDate)
+        print(url.contentAccessDate)
+        print(url.modificationDate)
+
+    }
+
+    func testURLInferredHiddenFile() {
+
+        guard let testDirectory = (Bundle(for: type(of: self)).resourcePath +/ "TestFiles")?.fileURL
+            else { XCTFail("Unable to load test files directory."); return }
         
-        let inferredHiddenTestFile = testDirectory +/ "~InferredHiddenTestFile"
-        XCTAssert(inferredHiddenTestFile.fileExists)
-        XCTAssert(inferredHiddenTestFile.isLocal)
-        XCTAssert(!inferredHiddenTestFile.isUbiquitous)
-        XCTAssert(inferredHiddenTestFile.isRegularFile)
-        XCTAssert(!inferredHiddenTestFile.isDirectory)
-        XCTAssert(!inferredHiddenTestFile.isSymbolicLink)
-        XCTAssert(inferredHiddenTestFile.isInferredHidden)
-        XCTAssert(!inferredHiddenTestFile.isHidden)
+        let url = testDirectory +/ "~InferredHiddenTestFile"
+        XCTAssertTrue(url.fileExists)
+        XCTAssertTrue(url.isLocal)
+        XCTAssertFalse(url.isUbiquitous)
+        XCTAssertTrue(url.isRegularFile)
+        XCTAssertFalse(url.isDirectory)
+        XCTAssertFalse(url.isSymbolicLink)
+        XCTAssertTrue(url.isInferredHidden)
+        XCTAssertFalse(url.isHidden)
+        XCTAssertEqual("20 bytes", url.fileSize.dataSizeString())
+        XCTAssertEqual("20 bytes", url.sizeOfContents.dataSizeString())
+        XCTAssertEqual("0 file(s)", String(format: "%d file(s)", url.fileCount))
+        print(url.creationDate)
+        print(url.contentAccessDate)
+        print(url.modificationDate)
         
+    }
+
+    func testDocumentDirectory() {
+
+        guard let testDirectory = (Bundle(for: type(of: self)).resourcePath +/ "TestFiles")?.fileURL
+            else { XCTFail("Unable to load test files directory."); return }
+
+        let document = Document(fileURL: testDirectory)
+
+        XCTAssertTrue(document.fileExists)
+        XCTAssertTrue(document.isLocal)
+        XCTAssertFalse(document.isUbiquitous)
+        XCTAssertFalse(document.isRegularFile)
+        XCTAssertTrue(document.isDirectory)
+        XCTAssertFalse(document.isSymbolicLink)
+        XCTAssertFalse(document.isInferredHidden)
+        XCTAssertFalse(document.isHidden)
+        XCTAssertEqual("0 bytes", document.fileSize.dataSizeString())
+        XCTAssertEqual("72 bytes", document.sizeOfContents.dataSizeString())
+        XCTAssertEqual("4 file(s)", String(format: "%d file(s)", document.fileCount))
+        print(document.creationDate)
+        print(document.contentAccessDate)
+        print(document.modificationDate)
+
+        let openExpectation = self.expectation(description: "DocumentOpen")
+        let closeExpectation = self.expectation(description: "DocumentClose")
+        document.open {
+            guard $0 else { XCTFail(); return }
+            XCTAssertEqual("", document.textContents ?? "")
+            openExpectation.fulfill()
+            document.close {
+                guard $0 else { XCTFail(); return }
+                closeExpectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 5, handler: nil)
+
+    }
+
+    func testDocumentRegularFile() {
+
+        guard let testDirectory = (Bundle(for: type(of: self)).resourcePath +/ "TestFiles")?.fileURL
+            else { XCTFail("Unable to load test files directory."); return }
+
+        let document = Document(fileURL: testDirectory +/ "TestFile.txt")
+
+        XCTAssertTrue(document.fileExists)
+        XCTAssertTrue(document.isLocal)
+        XCTAssertFalse(document.isUbiquitous)
+        XCTAssertTrue(document.isRegularFile)
+        XCTAssertFalse(document.isDirectory)
+        XCTAssertFalse(document.isSymbolicLink)
+        XCTAssertFalse(document.isInferredHidden)
+        XCTAssertFalse(document.isHidden)
+        XCTAssertEqual("20 bytes", document.fileSize.dataSizeString())
+        XCTAssertEqual("20 bytes", document.sizeOfContents.dataSizeString())
+        XCTAssertEqual("0 file(s)", String(format: "%d file(s)", document.fileCount))
+        print(document.creationDate)
+        print(document.contentAccessDate)
+        print(document.modificationDate)
+
+        let openExpectation = self.expectation(description: "DocumentOpen")
+        let closeExpectation = self.expectation(description: "DocumentClose")
+        document.open {
+            guard $0 else { XCTFail(); return }
+            XCTAssertEqual("This is a test file\n", document.textContents ?? "")
+            openExpectation.fulfill()
+            document.close {
+                guard $0 else { XCTFail(); return }
+                closeExpectation.fulfill()
+            }
+        }
+
+        waitForExpectations(timeout: 5, handler: nil)
+
+    }
+
+    func testDocumentSymbolicLink() {
+
+        // Skip this test for now
+        return
+
+        guard let testDirectory = (Bundle(for: type(of: self)).resourcePath +/ "TestFiles")?.fileURL
+            else { XCTFail("Unable to load test files directory."); return }
+
+        let document = Document(fileURL: testDirectory +/ "TestLink")
+
+        XCTAssertTrue(document.fileExists)
+        XCTAssertTrue(document.isLocal)
+        XCTAssertFalse(document.isUbiquitous)
+        XCTAssertFalse(document.isRegularFile)
+        XCTAssertFalse(document.isDirectory)
+        XCTAssertTrue(document.isSymbolicLink)
+        XCTAssertFalse(document.isInferredHidden)
+        XCTAssertFalse(document.isHidden)
+        XCTAssertEqual("12 bytes", document.fileSize.dataSizeString())
+        XCTAssertEqual("12 bytes", document.sizeOfContents.dataSizeString())
+        XCTAssertEqual("0 file(s)", String(format: "%d file(s)", document.fileCount))
+        print(document.creationDate)
+        print(document.contentAccessDate)
+        print(document.modificationDate)
+
+        let openExpectation = self.expectation(description: "DocumentOpen")
+        let closeExpectation = self.expectation(description: "DocumentClose")
+        document.open {
+            guard $0 else { XCTFail(); return }
+            XCTAssertEqual("This is a test file\n", document.textContents ?? "")
+            openExpectation.fulfill()
+            document.close {
+                guard $0 else { XCTFail(); return }
+                closeExpectation.fulfill()
+            }
+        }
+
+        waitForExpectations(timeout: 5, handler: nil)
+
     }
     
     func testFileManager() {
@@ -183,18 +289,16 @@ class Tests: XCTestCase {
         FileSystem.removeItem(atPath: dst2)
         FileSystem.createDirectory(atPath: dst2)
         
-        var copiedFiles = FileSystem.contentsOfDirectory(atPath: dst)
-        XCTAssert(copiedFiles.count == 11)
-        
+        let copiedFiles = FileSystem.contentsOfDirectory(atPath: dst)
+        XCTAssertEqual(copiedFiles.count, 11)
+
         for path in copiedFiles {
             print(path)
             FileSystem.moveItem(atPath: dst +/ path, toPath: dst2)
         }
         
-        let movedFiles = FileSystem.contentsOfDirectory(atPath: dst2)
-        copiedFiles = FileSystem.contentsOfDirectory(atPath: dst)
-        XCTAssert(copiedFiles.count == 0)
-        XCTAssert(movedFiles.count == 11)
+        XCTAssertEqual(FileSystem.contentsOfDirectory(atPath: dst).count, 0)
+        XCTAssertEqual(FileSystem.contentsOfDirectory(atPath: dst2).count, 11)
         
     }
     
